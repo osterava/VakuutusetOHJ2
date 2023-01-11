@@ -1,0 +1,10 @@
+Kotimaa vakuutusrekisteri
+; Kenttien järjestys tiedostossa on seuraava;
+;sukunimi etunimi  |sotu       |katuosoite      	|postinumero|postiosoite|puhelinnumero|kotitalouden koko|
+1|Matilainen Marko |010101-123U|Maailmantie 5 		|12345		|Maailma	|1234567890	  | 2				|
+2|Bravo Theo 	   |010101-123M|Feenixtie 5 		|45432		|Nurkka		|1234567890	  | 1				|
+3|Aarnio Aku 	   |010101-123N|Retostaho 15 		|52412		|Kulmaus	|1234567890	  | 4				|
+4|Nuuksio Mirka    |010101-123V|Kaatopaikantie 2 	|45124		|Jaakob		|1234567890	  | 2				|
+5|Päivölä Mirja    |010101-123S|Yyterintie 21 		|13424		|Kotimaailma|1234567890	  | 1				|
+6|Kerkko Masi      |010101-123R|Gyroskatu 4 		|14312		|Maailma	|1234567890	  | 3				|
+7|Uskonmies Tero   |010101-123T|Kotitie 5 			|54321		|Ilmasto	|879214895	  | 5				|

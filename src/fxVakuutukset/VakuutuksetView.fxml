@@ -1,158 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
-  All rights reserved. Use is subject to license terms.
-
-  This file is available and licensed under the following license:
-
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions
-  are met:
-
-  - Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer.
-  - Redistributions in binary form must reproduce the above copyright
-    notice, this list of conditions and the following disclaimer in
-    the documentation and/or other materials provided with the distribution.
-  - Neither the name of Oracle Corporation nor the names of its
-    contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
-
+<?import fi.jyu.mit.fxgui.ComboBoxChooser?>
+<?import fi.jyu.mit.fxgui.ListChooser?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-  <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="Tiedosto">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Muokkaa">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Apua">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <children>
-            <Button layoutX="14.0" layoutY="333.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" text="Uusi asiakas" />
-            <Button layoutX="120.0" layoutY="333.0" mnemonicParsing="false" text="Tallenna" />
-            <Separator layoutX="394.0" layoutY="-12.0" orientation="VERTICAL" prefHeight="329.0" prefWidth="8.0" />
-            <Separator layoutX="130.0" layoutY="1.0" orientation="VERTICAL" prefHeight="328.0" prefWidth="8.0" />
-            <Text layoutX="36.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hakuehto" wrappingWidth="63.5" />
-            <TextField layoutX="5.0" layoutY="28.0" prefHeight="26.0" prefWidth="119.0" />
-            <ListView layoutX="7.0" layoutY="109.0" prefHeight="214.0" prefWidth="118.0" />
-            <Text layoutX="38.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Asiakkaat" />
-            <Separator layoutX="-2.0" layoutY="328.0" prefHeight="4.0" prefWidth="641.0" />
-            <ComboBox layoutX="4.0" layoutY="57.0" prefHeight="26.0" prefWidth="124.0" promptText="Nimi" />
-            <Text layoutX="214.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nimi">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Text>
-            <Text layoutX="186.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Katuosoite">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Text>
-            <Text layoutX="213.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hetu">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Text>
-            <Text layoutX="181.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postinumero">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Text>
-            <Text layoutX="168.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Puhelinnumero">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Text>
-            <Text layoutX="186.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postiosoite">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Text>
-            <Text layoutX="155.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kotitalouden koko" wrappingWidth="101.4334318855814">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Text>
-            <Text layoutX="190.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lisätietoja">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Text>
-            <Separator layoutX="-1.0" layoutY="21.0" prefHeight="5.0" prefWidth="640.0" />
-            <Text layoutX="221.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Asiakkaan tiedot" />
-            <TextField layoutX="242.0" layoutY="108.0" prefHeight="26.0" prefWidth="146.0" />
-            <TextField layoutX="243.0" layoutY="27.0" prefHeight="26.0" prefWidth="145.0" />
-            <TextField layoutX="243.0" layoutY="54.0" prefHeight="26.0" prefWidth="145.0" />
-            <TextField layoutX="243.0" layoutY="81.0" prefHeight="26.0" prefWidth="145.0" />
-            <TextField layoutX="243.0" layoutY="135.0" prefHeight="26.0" prefWidth="145.0" />
-            <TextField layoutX="243.0" layoutY="162.0" prefHeight="26.0" prefWidth="145.0" />
-            <TextField layoutX="243.0" layoutY="189.0" prefHeight="26.0" prefWidth="145.0" />
-            <TextField layoutX="243.0" layoutY="216.0" prefHeight="26.0" prefWidth="145.0" />
-            <Separator layoutX="133.0" layoutY="252.0" prefHeight="5.0" prefWidth="265.0" />
-            <Text layoutX="483.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vakuutukset" />
-      </children>
-    </AnchorPane>
-      <Separator orientation="VERTICAL" prefHeight="321.0" prefWidth="0.0" />
-  </children>
-</VBox>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Tiedosto">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Muokkaa">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Apua">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <right>
+      <BorderPane prefHeight="341.0" prefWidth="236.0" BorderPane.alignment="CENTER">
+         <top>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Asiakkaan vakuutukset" BorderPane.alignment="CENTER" />
+         </top>
+      </BorderPane>
+   </right>
+   <bottom>
+      <BorderPane prefHeight="32.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <left>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button alignment="CENTER" graphicTextGap="5.0" lineSpacing="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" text="Uusi asiakas" />
+                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="91.0" text="Tallenna" />
+               </children>
+            </HBox>
+         </left>
+         <right>
+            <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="269.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" text="Muokkaa vakuutuksia" />
+                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" text="Lisää vakuutus" />
+               </children>
+            </HBox>
+         </right>
+      </BorderPane>
+   </bottom>
+   <center>
+      <SplitPane dividerPositions="0.5" prefHeight="341.0" prefWidth="331.0" BorderPane.alignment="CENTER">
+        <items>
+            <BorderPane>
+               <top>
+                  <VBox alignment="CENTER" prefHeight="92.0" prefWidth="169.0" BorderPane.alignment="TOP_CENTER">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Haku" />
+                        <TextField />
+                        <ComboBoxChooser prefHeight="26.0" prefWidth="173.0" rivit="Nimi&#10;Henkilötunnus&#10;Katuosoite&#10;Postinumero&#10;Postitoimipaikka&#10;Puhelinnumero&#10;&#10;" selectFirst="false" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Asiakkaat" />
+                     </children>
+                  </VBox>
+               </top>
+               <center>
+                  <ListChooser />
+               </center>
+            </BorderPane>
+            <BorderPane prefHeight="340.0" prefWidth="147.0">
+               <bottom>
+                  <ScrollPane prefHeight="323.0" prefWidth="114.0" BorderPane.alignment="CENTER">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <GridPane prefHeight="303.0" prefWidth="200.0" AnchorPane.bottomAnchor="-103.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                  <ColumnConstraints halignment="CENTER" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" />
+                                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                </rowConstraints>
+                                 <children>
+                                    <TextField prefHeight="8.0" prefWidth="100.0" GridPane.columnIndex="1" />
+                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nimi" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Henkilötunnus" GridPane.rowIndex="1" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Katuosoite" GridPane.rowIndex="2" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Postinumero" GridPane.rowIndex="3" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Postiosoite" GridPane.rowIndex="4" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Puhelinnumero" GridPane.rowIndex="5" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kotitalouden koko" GridPane.rowIndex="6" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lisätietoja" GridPane.rowIndex="7" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </bottom>
+               <top>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Asiakkaan tiedot" BorderPane.alignment="CENTER" />
+               </top>
+            </BorderPane>
+        </items>
+      </SplitPane>
+   </center>
+</BorderPane>

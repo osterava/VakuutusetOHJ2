@@ -16,7 +16,7 @@ public class VakuutuksetMain extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader ldr = new FXMLLoader(getClass().getResource("VakuutuksetView.fxml"));
+            FXMLLoader ldr = new FXMLLoader(getClass().getResource("VakuutuksetGUIView.fxml"));
             final Pane root = ldr.load();
             //final VakuutuksetController vakuutuksetCtrl = (VakuutuksetController) ldr.getController();
             Scene scene = new Scene(root);

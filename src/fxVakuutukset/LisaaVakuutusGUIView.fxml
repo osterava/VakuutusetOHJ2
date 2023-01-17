@@ -130,13 +130,14 @@
       <AnchorPane prefHeight="400.0" prefWidth="174.0" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="15.0" layoutY="219.0" text="Vakuutukset yhteensä (kk):" />
-            <TextField layoutX="8.0" layoutY="241.0" />
+            <TextField alignment="TOP_RIGHT" layoutX="8.0" layoutY="241.0" prefHeight="26.0" prefWidth="138.0" text="123" />
             <CheckBox layoutX="27.0" layoutY="135.0" mnemonicParsing="false" text="Matkavakuutus" />
             <CheckBox layoutX="27.0" layoutY="110.0" mnemonicParsing="false" text="Autovakuutus" />
             <CheckBox layoutX="27.0" layoutY="86.0" mnemonicParsing="false" text="Kotivakuutus" />
             <Button layoutX="88.0" layoutY="324.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Poistu" />
             <Label layoutX="42.0" layoutY="6.0" text="Vakuutukset" />
             <Button layoutX="8.0" layoutY="325.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="73.0" text="Tallenna" />
+            <Label layoutX="149.0" layoutY="244.0" text="€" />
          </children>
       </AnchorPane>
    </left>

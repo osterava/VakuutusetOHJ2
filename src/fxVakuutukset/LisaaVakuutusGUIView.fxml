@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Kotivakuutus">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="369.0" prefWidth="290.0">
+                     <children>
+                        <GridPane layoutX="33.0" layoutY="40.0" prefHeight="273.0" prefWidth="225.0">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                           </rowConstraints>
+                           <children>
+                              <TextField prefHeight="8.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" />
+                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="90.0" text="Käytössä:" />
+                              <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="90.0" text="Pinta-ala m^2:" GridPane.rowIndex="1" />
+                              <Label text="Voimassaoloaika:" GridPane.rowIndex="2" />
+                              <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="90.0" text="Irtaimisto:" GridPane.rowIndex="3" />
+                              <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="90.0" text="Asuntotyyppi:" GridPane.rowIndex="4" />
+                              <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="90.0" text="Omavastuu:" GridPane.rowIndex="5" />
+                              <Label GridPane.rowIndex="6" />
+                              <TextField prefHeight="8.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Autovakuutus">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutX="29.0" layoutY="40.0" prefHeight="263.0" prefWidth="251.0">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" maxWidth="111.0" minWidth="10.0" prefWidth="111.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="140.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                           </rowConstraints>
+                           <children>
+                              <TextField prefHeight="8.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <CheckBox mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="18.0" prefWidth="75.0" GridPane.columnIndex="1" />
+                              <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="107.0" text="Käytössä:" />
+                              <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="104.0" text="Ajoneuvo:" GridPane.rowIndex="1" />
+                              <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="104.0" text="Rekisteriote:" GridPane.rowIndex="3" />
+                              <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="103.0" text="Käyttöönottovuosi:" GridPane.rowIndex="2" />
+                              <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="104.0" text="Merkki:" GridPane.rowIndex="4" />
+                              <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="102.0" text="Malli:" GridPane.rowIndex="5" />
+                              <Label GridPane.rowIndex="6" />
+                              <TextField prefHeight="8.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" prefHeight="17.0" prefWidth="101.0" text="Kuukausihinta:" GridPane.rowIndex="6" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                           </children>
+                        </GridPane>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Matkavakuutus">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutX="29.0" layoutY="40.0" prefHeight="263.0" prefWidth="251.0">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" maxWidth="111.0" minWidth="10.0" prefWidth="111.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="140.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                           </rowConstraints>
+                           <children>
+                              <CheckBox mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="18.0" prefWidth="20.0" GridPane.columnIndex="1" />
+                              <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="103.0" text="Käytössä:" />
+                              <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="107.0" text="Laukkuturva:" GridPane.rowIndex="1" />
+                              <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="104.0" text="Katettu määrä:" GridPane.rowIndex="2" />
+                              <Label GridPane.rowIndex="3" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="106.0" text="Kuukausihinta:" GridPane.rowIndex="3" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <CheckBox mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="18.0" prefWidth="20.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                        </GridPane>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="174.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="15.0" layoutY="219.0" text="Vakuutukset yhteensä (kk):" />
+            <TextField layoutX="8.0" layoutY="241.0" />
+            <CheckBox layoutX="27.0" layoutY="135.0" mnemonicParsing="false" text="Matkavakuutus" />
+            <CheckBox layoutX="27.0" layoutY="110.0" mnemonicParsing="false" text="Autovakuutus" />
+            <CheckBox layoutX="27.0" layoutY="86.0" mnemonicParsing="false" text="Kotivakuutus" />
+            <Button layoutX="88.0" layoutY="324.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Poistu" />
+            <Label layoutX="42.0" layoutY="6.0" text="Vakuutukset" />
+            <Button layoutX="8.0" layoutY="325.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="73.0" text="Tallenna" />
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>

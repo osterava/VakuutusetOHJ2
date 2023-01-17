@@ -1,0 +1,10 @@
+id	| onko |Ajoneuvo      | Käyttöönottovuosi | Rekisteriote | Merkki	 | Malli | Kuukausihinta|
+1	|kyllä |Henkilöauto   |14.2.2023 	  | ABC-123      | Ford   	 |Focus  | 100|
+2   	|kyllä |Pakettiauto   |10.4.2022 	  | ABC-123   	 | Opel    	 |Astra  | 100|
+3	|ei    |Linja-auto    |14.2.2025 	  | ABC-123  	 | Audi   	 |A3	 | 100|
+4	|kyllä |Henkilöauto   |14.2.2023 	  | ABC-123   	 | Mercedes Benz |CDI 420| 100|
+5	|ei    |Moottoripyörä |14.6.2023 	  | ABC-123   	 | Opel		 |Vectra | 100|	
+6	|ei    |Moottoripyörä |14.6.2023 	  | ABC-123   	 | Opel		 |Vectra | 100|	
+7	|ei    |Moottoripyörä |14.6.2023 	  | ABC-123   	 | Opel		 |Vectra | 100|		
+
+

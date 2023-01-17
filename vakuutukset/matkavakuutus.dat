@@ -1,0 +1,10 @@
+id	| Käytössä |Laukkuturva      | Käyttöönottovuosi | Rekisteriote | 
+1	|kyllä |kyllä   	     |14.2.2023 	  | ABC-123      | 
+2   	|kyllä |kyllä   	     |10.4.2022 	  | ABC-123   	 | 
+3	|ei    |ei   		     |14.2.2025 	  | ABC-123  	 | 
+4	|kyllä |ei  		     |14.2.2023 	  | ABC-123   	 | 
+5	|ei    |ei                   	|14.6.2023 	  | ABC-123   	 | 	
+6	|ei    |ei |14.6.2023 	  | ABC-123   	 | 	
+7	|ei    |kyllä |14.6.2023 	  | ABC-123   	 | 	
+
+

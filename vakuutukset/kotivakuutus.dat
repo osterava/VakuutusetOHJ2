@@ -6,5 +6,7 @@ id	|onko |pinta-ala (mˆ2) |voimassaoloaika | onko irtaimistovakuutusta  | asunt
 3	|ei		|150 |14.2.2025 | kyllä  | omakotitalo |200
 4	|kyllä |100 |14.2.2023 | kyllä  | omakotitalo |200
 5	|ei		|100 |14.6.2023 | ei  | kerrostalo |300
+6	|ei		|100 |14.6.2023 | ei  | kerrostalo |300
+7	|ei		|100 |14.6.2023 | ei  | kerrostalo |300
 
 

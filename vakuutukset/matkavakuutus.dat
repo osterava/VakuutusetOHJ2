@@ -1,10 +1,10 @@
-id	| Käytössä |Laukkuturva      | Käyttöönottovuosi | Rekisteriote | 
-1	|kyllä |kyllä   	     |14.2.2023 	  | ABC-123      | 
-2   	|kyllä |kyllä   	     |10.4.2022 	  | ABC-123   	 | 
-3	|ei    |ei   		     |14.2.2025 	  | ABC-123  	 | 
-4	|kyllä |ei  		     |14.2.2023 	  | ABC-123   	 | 
-5	|ei    |ei                   	|14.6.2023 	  | ABC-123   	 | 	
-6	|ei    |ei |14.6.2023 	  | ABC-123   	 | 	
-7	|ei    |kyllä |14.6.2023 	  | ABC-123   	 | 	
+id	| Käytössä |Laukkuturva      | Katettu määrä | 	Kuukausihinta | 
+1	|kyllä 	   |kyllä   	     |1400 	     | 	      10      | 
+2   	|kyllä     |kyllä   	     |1500	     |        10      | 
+3	|ei        |ei   	     |1500 	     |        10      | 
+4	|kyllä     |ei  	     |1500 	     |        10      | 
+5	|ei        |ei               |1500 	     | 	      10      | 	
+6	|ei    	   |ei 		     |1500 	     |        10      | 	
+7	|ei    	   |kyllä            |1500 	     |        10      | 	
 
 

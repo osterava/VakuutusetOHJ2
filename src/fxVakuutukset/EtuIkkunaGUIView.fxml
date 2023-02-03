@@ -40,18 +40,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxVakuutukset.EtuIkkunaGUIController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
             <Text layoutX="139.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salasana:" textAlignment="CENTER" wrappingWidth="54.36572265625" />
             <ImageView fitHeight="197.0" fitWidth="200.0" layoutX="194.0" layoutY="63.0">
                <image>
-                  <Image url="@KOTIMAA_LOGO.png" />
+                  <Image url="@../../kuvat/KOTIMAA_LOGO.png" />
                </image>
             </ImageView>
-            <Button layoutX="529.0" layoutY="343.0" mnemonicParsing="false" text="OK" />
-            <Button layoutX="570.0" layoutY="343.0" mnemonicParsing="false" text="Cancel" />
+            <Button fx:id="okNappi" layoutX="529.0" layoutY="343.0" mnemonicParsing="false" onAction="#handleTallenna" text="OK" />
+            <Button fx:id="PeruutaNappi" layoutX="570.0" layoutY="343.0" mnemonicParsing="false" onAction="#handleTallenna" text="Cancel" />
             <PasswordField layoutX="214.0" layoutY="288.0" />
       </children>
     </AnchorPane>

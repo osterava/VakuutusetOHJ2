@@ -22,23 +22,28 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxVakuutukset.VakuutuksetGUIController">
    <top>
       <MenuBar prefWidth="653.0" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Tiedosto">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Tallenna" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Avaa" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Tulosta" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Lopeta" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Muokkaa">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Muokkaa  asiakaan tietoja" />
+                  <MenuItem mnemonicParsing="false" text="Muokkaa vakuutus" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Apua">
+          <Menu mnemonicParsing="false" onAction="#handleTallenna" text="Apua">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Apua" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Tietoja" />
             </items>
           </Menu>
         </menus>
@@ -171,8 +176,8 @@
                <children>
                   <AnchorPane>
                      <children>
-                        <Button fx:id="UusiAsiakas" alignment="CENTER" graphicTextGap="5.0" layoutX="4.0" layoutY="2.0" lineSpacing="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="112.0" text="Uusi asiakas" />
-                        <Button fx:id="tallenna" layoutX="119.0" layoutY="2.0" minWidth="100.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Tallenna" />
+                        <Button fx:id="UusiAsiakas" alignment="CENTER" graphicTextGap="5.0" layoutX="4.0" layoutY="2.0" lineSpacing="1.0" mnemonicParsing="false" onAction="#handleTallenna" prefHeight="26.0" prefWidth="112.0" text="Uusi asiakas" />
+                        <Button fx:id="tallenna" layoutX="119.0" layoutY="2.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleTallenna" prefHeight="26.0" prefWidth="100.0" text="Tallenna" />
                      </children>
                   </AnchorPane>
                </children>
@@ -183,7 +188,7 @@
                <children>
                   <AnchorPane>
                      <children>
-                        <Button fx:id="lisaaVakuutus" layoutX="46.0" layoutY="3.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" text="Lisää vakuutus" />
+                        <Button fx:id="lisaaVakuutus" layoutX="46.0" layoutY="3.0" mnemonicParsing="false" onAction="#handleTallenna" prefHeight="26.0" prefWidth="118.0" text="Lisää vakuutus" />
                      </children>
                   </AnchorPane>
                </children>
@@ -192,26 +197,26 @@
       </BorderPane>
    </bottom>
    <center>
-      <SplitPane dividerPositions="0.5" prefHeight="341.0" prefWidth="331.0" BorderPane.alignment="CENTER">
+      <SplitPane dividerPositions="0.5" prefHeight="341.0" prefWidth="390.0" BorderPane.alignment="CENTER">
         <items>
-            <BorderPane maxWidth="300.0" prefHeight="339.0" prefWidth="156.0">
+            <BorderPane maxWidth="200.0" prefHeight="340.0" prefWidth="150.0">
                <top>
-                  <VBox alignment="CENTER" maxWidth="200.0" prefHeight="84.0" prefWidth="138.0" BorderPane.alignment="TOP_CENTER">
+                  <VBox alignment="CENTER" maxWidth="150.0" prefHeight="84.0" prefWidth="138.0" BorderPane.alignment="TOP_CENTER">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Haku" />
-                        <TextField fx:id="hakuehto" />
-                        <ComboBoxChooser fx:id="cbKentat" prefHeight="26.0" prefWidth="193.0" rivit="Nimi&#10;Henkilötunnus&#10;Katuosoite&#10;Postinumero&#10;Postitoimipaikka&#10;Puhelinnumero&#10;&#10;" selectFirst="false" />
+                        <TextField fx:id="hakuehto" maxWidth="150.0" prefWidth="166.0" />
+                        <ComboBoxChooser fx:id="cbKentat" maxWidth="150.0" prefHeight="26.0" prefWidth="193.0" rivit="Nimi&#10;Henkilötunnus&#10;Katuosoite&#10;Postinumero&#10;Postitoimipaikka&#10;Puhelinnumero&#10;&#10;" selectFirst="false" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Asiakkaat" />
                      </children>
                   </VBox>
                </top>
                <center>
-                  <ListChooser prefHeight="255.0" prefWidth="163.0" />
+                  <ListChooser maxWidth="150.0" prefHeight="256.0" prefWidth="100.0" />
                </center>
             </BorderPane>
             <BorderPane prefHeight="337.0" prefWidth="204.0">
                <bottom>
-                  <ScrollPane prefHeight="323.0" prefWidth="114.0" BorderPane.alignment="CENTER">
+                  <ScrollPane maxWidth="200.0" prefHeight="323.0" prefWidth="114.0" BorderPane.alignment="CENTER">
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>

@@ -1,0 +1,171 @@
+|------------------------------------------------------------------------|
+| Luokan nimi:  asiakas                              | Avustajat:        |
+|-------------------------------------------------------------------------
+| Vastuualueet:                                      |                   | 
+|  - tietää asiakkaiden nimet, sotun, postinumeron   |                   | 
+|    postiosoitteen, katuosoitteen, puhelinnumeron,  |                   | 
+|    ja kotitalouden koon                		     |                   | 
+|  - ei tiedä vakuutuksista                          |                   | 
+|  - osaa muuttaa 1| Mattilainen Marko|...           |                   | 
+|  - -merkkijonon asiakkaan tiedoiksi                |                   | 
+|  - osaa antaa merkkijonona i:n kentän tiedot       |                   | 
+|  - osaa laittaa merkkijonon i:neksi kentäksi       |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|-------------------------------------------------------------------------
+
+
+
+|------------------------------------------------------------------------|
+| Luokan nimi:  kotivakuutus                         | Avustajat:        |
+|-------------------------------------------------------------------------
+| Vastuualueet:                                      |                   | 
+|  - tietää vakuutusten kentät					     | - asiakkaat       | 
+|  - osaa tarkastaa tietyn kentän olellisuuden       |                   | 
+|  - osaa muuttaa  1|1|kyllä| 100 |... merkkijonon   |                   |  
+|  - vakuutusten tiedoiksi                           |                   | 
+|  - antaa merkkijonon i:n kentän tiedot             |                   | 
+|  - osaa laittaa merkkijonon i:neksi kentäksi       |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|-------------------------------------------------------------------------
+
+
+|------------------------------------------------------------------------|
+| Luokan nimi: matkavakuutus                         | Avustajat:        |
+|-------------------------------------------------------------------------
+| Vastuualueet:                                      |                   | 
+|  - tietää vakuutusten kentät					     | - asiakkaat       | 
+|  - osaa tarkastaa tietyn kentän olellisuuden       |                   | 
+|  - osaa muuttaa  1|1|kyllä| 100 |... merkkijonon   |                   |  
+|  - vakuutusten tiedoiksi                           |                   | 
+|  - antaa merkkijonon i:n kentän tiedot             |                   | 
+|  - osaa laittaa merkkijonon i:neksi kentäksi       |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|-------------------------------------------------------------------------
+
+
+|------------------------------------------------------------------------|
+| Luokan nimi: autovakuutukset                       | Avustajat:        |
+|-------------------------------------------------------------------------
+| Vastuualueet:                                      |                   | 
+|  - tietää vakuutusten kentät					     | - asiakkaat       | 
+|  - osaa tarkastaa tietyn kentän olellisuuden       |                   | 
+|  - osaa muuttaa  1|1|kyllä| 100 |... merkkijonon   |                   |  
+|  - vakuutusten tiedoiksi                           |                   | 
+|  - antaa merkkijonon i:n kentän tiedot             |                   | 
+|  - osaa laittaa merkkijonon i:neksi kentäksi       |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|-------------------------------------------------------------------------
+
+
+
+|------------------------------------------------------------------------|
+| Luokan nimi:   vakuutus                            | Avustajat:        |
+|-------------------------------------------------------------------------
+| Vastuualueet:                                      |                   | 
+|                                                    | - asiakkaat       | 
+| - huolehtii asiakkaat ja vakuutukset - luokkien    | - vakuutukset     | 
+|   välisestä yhteistyöstä ja välittää näitä tietoja | - asiakas         | 
+|   pyydettäessä                                     | 			         | 
+| - lukee ja kirjoittaa vakuutusten tiedostoon       |                   | 
+|   pyytämällä apua avustajiltaan                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|-------------------------------------------------------------------------
+
+
+|------------------------------------------------------------------------|
+| Luokan nimi:   Asiakkaat                           | Avustajat:        |
+|-------------------------------------------------------------------------
+| Vastuualueet:                                      |                   | 
+|                                                    | - asiakas         | 
+| - pitää yllä varsinaista asiakasrekisteriä, eli    |                   | 
+|   osaa lisätä ja poistaa jäsenen                   |                   | 
+| - lukee ja kirjoittaa asiakkaiden tiedostoon       |                   | 
+| - osaa etsiä ja lajitella                          |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|-------------------------------------------------------------------------
+
+
+|------------------------------------------------------------------------|
+| Luokan nimi:   Vakuutukset                         | Avustajat:        |
+|-------------------------------------------------------------------------
+| Vastuualueet:                                      |                   | 
+|                                                    | - vakuutus        | 
+| - pitää yllä varsinaista vakuutusrekisteriä, eli   |                   | 
+|   osaa lisätä ja poistaa vakuutuksen               |                   | 
+| - lukee ja kirjoittaa vakuutukset  tiedostoon      |                   | 
+| - osaa etsiä ja lajitella                          |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|-------------------------------------------------------------------------
+
+
+|------------------------------------------------------------------------|
+| Luokan nimi:   Naytto                              | Avustajat:        |
+|-------------------------------------------------------------------------
+| Vastuualueet:                                      |                   | 
+|                                                    |	        		.|
+| - hoitaa kaiken näyttöön tulevan tekstin           | - ASIAKAS         | 
+| - hoitaa kaiken tiedon pyytämisen käyttäjältä      | - VAKUUTUS       .| 
+| (- ei tiedä vakuutusten eikä asiakkaiden           |                   | 
+|     yksityiskohtia)                                |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|-------------------------------------------------------------------------
+
+
+

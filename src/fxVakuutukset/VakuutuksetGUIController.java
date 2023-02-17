@@ -49,7 +49,6 @@ public class VakuutuksetGUIController implements Initializable {
         alert.showAndWait();
     }
 
- 
 
 @Override
 public void initialize(URL arg0, ResourceBundle arg1) {

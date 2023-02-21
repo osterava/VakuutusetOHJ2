@@ -176,7 +176,7 @@
                <children>
                   <AnchorPane>
                      <children>
-                        <Button fx:id="UusiAsiakas" alignment="CENTER" graphicTextGap="5.0" layoutX="4.0" layoutY="2.0" lineSpacing="1.0" mnemonicParsing="false" onAction="#handleTallenna" prefHeight="26.0" prefWidth="112.0" text="Uusi asiakas" />
+                        <Button fx:id="UusiAsiakas" alignment="CENTER" graphicTextGap="5.0" layoutX="4.0" layoutY="2.0" lineSpacing="1.0" mnemonicParsing="false" onAction="#handleUusiAsiaks" prefHeight="26.0" prefWidth="112.0" text="Uusi asiakas" />
                         <Button fx:id="tallenna" layoutX="119.0" layoutY="2.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleTallenna" prefHeight="26.0" prefWidth="100.0" text="Tallenna" />
                      </children>
                   </AnchorPane>
@@ -211,12 +211,12 @@
                   </VBox>
                </top>
                <center>
-                  <ListChooser maxWidth="150.0" prefHeight="256.0" prefWidth="100.0" />
+                  <ListChooser fx:id="chooserAsiakkaat" maxWidth="150.0" prefHeight="256.0" prefWidth="100.0" />
                </center>
             </BorderPane>
             <BorderPane prefHeight="337.0" prefWidth="204.0">
                <bottom>
-                  <ScrollPane maxWidth="200.0" prefHeight="323.0" prefWidth="114.0" BorderPane.alignment="CENTER">
+                  <ScrollPane fx:id= "panelJasen" maxWidth="200.0" prefHeight="323.0" prefWidth="114.0" BorderPane.alignment="CENTER">
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>

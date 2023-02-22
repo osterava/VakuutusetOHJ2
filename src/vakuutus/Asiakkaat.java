@@ -28,20 +28,20 @@ public class Asiakkaat {
      * <pre name="test">
      * #THROWS SailoException 
      * Asiakkaat asiakkaat = new Asiakkaat();
-     * Asiakas aku1 = new Asiakas(), aku2 = new Asiakas();
+     * Asiakas marko1 = new Asiakas(), marko2 = new Asiakas();
      * asiakkaat.getLkm() === 0;
-     * asiakkaat.lisaa(aku1); asiakkaat.getLkm() === 1;
-     * asiakkaat.lisaa(aku2); asiakkaat.getLkm() === 2;
-     * asiakkaat.lisaa(aku1); asiakkaat.getLkm() === 3;
-     * asiakkaat.anna(0) === aku1;
-     * asiakkaat.anna(1) === aku2;
-     * asiakkaat.anna(2) === aku1;
-     * asiakkaat.anna(1) == aku1 === false;
-     * asiakkaat.anna(1) == aku2 === true;
-     * asiakkaat.anna(3) === aku1; #THROWS IndexOutOfBoundsException 
-     * asiakkaat.lisaa(aku1); asiakkaat.getLkm() === 4;
-     * asiakkaat.lisaa(aku1); asiakkaat.getLkm() === 5;
-     * asiakkaat.lisaa(aku1);  #THROWS SailoException
+     * asiakkaat.lisaa(marko1); asiakkaat.getLkm() === 1;
+     * asiakkaat.lisaa(marko2); asiakkaat.getLkm() === 2;
+     * asiakkaat.lisaa(marko1); asiakkaat.getLkm() === 3;
+     * asiakkaat.anna(0) === marko1;
+     * asiakkaat.anna(1) === marko2;
+     * asiakkaat.anna(2) === marko1;
+     * asiakkaat.anna(1) == marko1 === false;
+     * asiakkaat.anna(1) == marko2 === true;
+     * asiakkaat.anna(3) === marko1; #THROWS IndexOutOfBoundsException 
+     * asiakkaat.lisaa(marko1); asiakkaat.getLkm() === 4;
+     * asiakkaat.lisaa(marko1); asiakkaat.getLkm() === 5;
+     * asiakkaat.lisaa(marko1);  #THROWS SailoException
      * </pre>
      */
     public void lisaa(Asiakas asiakas) throws SailoException {
@@ -52,7 +52,7 @@ public class Asiakkaat {
 
 
     /**
-     * Palauttaa viitteen i:teen jäseneen.
+     * Palauttaa viitteen i:teen asiakkaaseen.
      * @param i monennenko jäsenen viite halutaan
      * @return viite jäseneen, jonka indeksi on i
      * @throws IndexOutOfBoundsException jos i ei ole sallitulla alueella  
@@ -100,15 +100,15 @@ public class Asiakkaat {
     public static void main(String args[]) {
         Asiakkaat asiakkaat = new Asiakkaat();
 
-        Asiakas aku = new Asiakas(), aku2 = new Asiakas();
-        aku.rekisteroi();
-        aku.naytaAkuTiedoilla();
-        aku2.rekisteroi();
-        aku2.naytaAkuTiedoilla();
+        Asiakas marko = new Asiakas(), marko2 = new Asiakas();
+        marko.rekisteroi();
+        marko.naytaMarkoTiedoilla();
+        marko2.rekisteroi();
+        marko2.naytaMarkoTiedoilla();
 
         try {
-            asiakkaat.lisaa(aku);
-            asiakkaat.lisaa(aku2);
+            asiakkaat.lisaa(marko);
+            asiakkaat.lisaa(marko2);
 
             System.out.println("============= asiakkaat testi =================");
 

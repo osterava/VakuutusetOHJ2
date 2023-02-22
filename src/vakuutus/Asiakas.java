@@ -38,10 +38,10 @@ public class Asiakas {
         aku.rekisteroi();
         aku2.rekisteroi();
         aku.tulosta(System.out);
-        aku.naytaAkuTiedoilla();
+        aku.naytaMarkoTiedoilla();
         aku.tulosta(System.out);
 
-        aku2.naytaAkuTiedoilla();
+        aku2.naytaMarkoTiedoilla();
         aku2.tulosta(System.out);
 
         
@@ -53,30 +53,30 @@ public class Asiakas {
      * apumetodi jolla täytetään testiarvot jäsenelle
      * todo: poista kun kaikki toimii :)
      */
-    public void naytaAkuTiedoilla() {
-       nimi="Aku Ankka" +" "+ HetuTarkistus.rand(1,4000);
+    public void naytaMarkoTiedoilla() {
+       nimi="Mattilainen Marko" +" "+ HetuTarkistus.rand(1,4000);
        hetu=HetuTarkistus.arvoHetu();
-       katuosoite="Paratiisitie" + HetuTarkistus.rand(1,40);
+       katuosoite="Maailmatie" + HetuTarkistus.rand(1,40);
        postinumero="12345";
-       postiosoite="Ankkalinna";
-       puhelinnumero="111100000";
-       kotitaloudenkoko=3;
+       postiosoite="Maailma";
+       puhelinnumero="1234567890";
+       kotitaloudenkoko=2;
        lisatietoja="ei lisätietoja";
         
     }
     /**
-     * antaa asiakkaalle seuraavan rekisterinumeron 
+     * antaa asiakkaalle seuraavan rekisterinumeron eli id:n
      * @return asiakkaan uusi tunnusnro
      * @example
      * <pre name="test">
-     *  Asiakas aku1=new Asiakas();
-     *  aku1.getTunnusNro()===0;
-     *  aku1.rekisteroi();
+     *  Asiakas marko1=new Asiakas();
+     *  marko1.getTunnusNro()===0;
+     *  marko1.rekisteroi();
      *  
-     *  Asiakas aku2=new Asiakas();
-     *  aku2.rekisteroi();
-     *  int n1=aku1.getTunnusNro();
-     *  int n2= aku2.getTunnusNro();
+     *  Asiakas marko2=new Asiakas();
+     *  marko2.rekisteroi();
+     *  int n1=marko2.getTunnusNro();
+     *  int n2= marko2.getTunnusNro();
      *  n1===n2-1;
      *  /pre>
      */

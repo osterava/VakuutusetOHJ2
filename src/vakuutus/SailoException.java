@@ -2,8 +2,8 @@ package vakuutus;
 
 /**
  * Poikkeusluokka tietorakenteesta aiheutuville poikkeuksille.
- * @author Vesa Lappalainen
- * @version 1.0, 22.02.2003
+ * @author olliterava, laidmale
+ * @version 21.2.2023
  */
 public class SailoException extends Exception {
     private static final long serialVersionUID = 1L;

@@ -13,7 +13,7 @@ public class Vakuutus {
 
 
     /**
-     * Palautaa vakuutuksen jäsenmäärän
+     * Palautaa vakuutuksen asiakkaiden
      * @return asiakkaiden määrä
      */
     public int getAsiakkaat() {
@@ -26,7 +26,7 @@ public class Vakuutus {
      * @param nro viitenumero, jonka mukaan poistetaan
      * @return montako asiakasta poistettiin
      */
-    public int poista(@SuppressWarnings("unused") int nro) {
+    public int poista( int nro) {
         return 0;
     }
 
@@ -39,20 +39,20 @@ public class Vakuutus {
      * <pre name="test">
      * #THROWS SailoException
      * Vakuutus vakuutus = new Vakuutus();
-     * Asiakas aku1 = new Asiakas(), aku2 = new Asiakas();
-     * aku1.rekisteroi(); aku2.rekisteroi();
+     * Asiakas marko1 = new Asiakas(), marko2 = new Asiakas();
+     * marko1.rekisteroi(); marko2.rekisteroi();
      * vakuutus.getAsiakkaat() === 0;
-     * vakuutus.lisaa(aku1); kerho.getAsiakkaat() === 1;
-     * vakuutus.lisaa(aku2); kerho.getAsiakkaat() === 2;
-     * vakuutus.lisaa(aku1); kerho.getAsiakkaat() === 3;
+     * vakuutus.lisaa(marko1); kerho.getAsiakkaat() === 1;
+     * vakuutus.lisaa(marko2); kerho.getAsiakkaat() === 2;
+     * vakuutus.lisaa(marko1); kerho.getAsiakkaat() === 3;
      * vakuutus.getAsiakkaat() === 3;
-     * vakuutus.annaAsiakas(0) === aku1;
-     * vakuutus.annaAsiakas(1) === aku2;
-     * vakuutus.annaAsiakas(2) === aku1;
-     * vakuutus.annaAsiakas(3) === aku1; #THROWS IndexOutOfBoundsException 
-     * vakuutus.lisaa(aku1); vakuutus.getAsiakkaat() === 4;
-     * vakuutus.lisaa(aku1); vakuutus.getAsiakkaat() === 5;
-     * vakuutus.lisaa(aku1);            #THROWS SailoException
+     * vakuutus.annaAsiakas(0) === marko1;
+     * vakuutus.annaAsiakas(1) === marko2;
+     * vakuutus.annaAsiakas(2) === marko1;
+     * vakuutus.annaAsiakas(3) === marko1; #THROWS IndexOutOfBoundsException 
+     * vakuutus.lisaa(marko1); vakuutus.getAsiakkaat() === 4;
+     * vakuutus.lisaa(marko1); vakuutus.getAsiakkaat() === 5;
+     * vakuutus.lisaa(marko1);            #THROWS SailoException
      * </pre>
      */
     public void lisaa(Asiakas asiakas) throws SailoException {
@@ -99,20 +99,20 @@ public class Vakuutus {
         Vakuutus vakuutus = new Vakuutus();
 
         try {
-            // vakuutus.lueTiedostosta("kelmit");
+            // vakuutus.lueTiedostosta("matkavakuutus");
 
-            Asiakas aku1 = new Asiakas(), aku2 = new Asiakas();
-            aku1.rekisteroi();
-            aku1.naytaAkuTiedoilla();
-            aku2.rekisteroi();
-            aku2.naytaAkuTiedoilla();
+            Asiakas marko1 = new Asiakas(), marko2 = new Asiakas();
+            marko1.rekisteroi();
+            marko1.naytaMarkoTiedoilla();
+            marko2.rekisteroi();
+            marko2.naytaMarkoTiedoilla();
 
-            vakuutus.lisaa(aku1);
-            vakuutus.lisaa(aku2);
-            vakuutus.lisaa(aku1);
-            vakuutus.lisaa(aku2);
-            vakuutus.lisaa(aku1);
-            vakuutus.lisaa(aku2);
+            vakuutus.lisaa(marko1);
+            vakuutus.lisaa(marko2);
+            vakuutus.lisaa(marko1);
+            vakuutus.lisaa(marko2);
+            vakuutus.lisaa(marko1);
+            vakuutus.lisaa(marko2);
 
             System.out.println("============= Vakuutuksen testi =================");
 

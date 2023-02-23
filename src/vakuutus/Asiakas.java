@@ -64,21 +64,22 @@ public class Asiakas {
        lisatietoja="ei lisätietoja";
         
     }
+    
     /**
      * antaa asiakkaalle seuraavan rekisterinumeron eli id:n
      * @return asiakkaan uusi tunnusnro
      * @example
      * <pre name="test">
-     *  Asiakas marko1=new Asiakas();
-     *  marko1.getTunnusNro()===0;
+     *  Asiakas marko1 = new Asiakas();
+     *  marko1.getTunnusNro() === 0;
      *  marko1.rekisteroi();
      *  
-     *  Asiakas marko2=new Asiakas();
+     *  Asiakas marko2 = new Asiakas();
      *  marko2.rekisteroi();
-     *  int n1=marko2.getTunnusNro();
-     *  int n2= marko2.getTunnusNro();
-     *  n1===n2-1;
-     *  /pre>
+     *  int n1 = marko2.getTunnusNro();
+     *  int n2 = marko2.getTunnusNro();
+     *  n1 === n2-1;
+     *  </pre>
      */
     public int rekisteroi() {
         this.tunnusNro=seuraavaNro;

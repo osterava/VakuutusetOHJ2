@@ -10,7 +10,6 @@ import javafx.fxml.FXMLLoader;
 
 /**
  * @author olliterava,laidmale
- * @version 11.1.2023
  * @version 21.2.2023
  *
  */
@@ -30,6 +29,8 @@ public class VakuutuksetMain extends Application {
             
             Vakuutus vakuutus=new Vakuutus();
             vakuutuksetCtrl.setVakuutus(vakuutus);
+            
+            
             
             primaryStage.show();
         } catch(Exception e) {

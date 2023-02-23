@@ -54,12 +54,12 @@ public class Asiakas {
      * todo: poista kun kaikki toimii :)
      */
     public void naytaAkuTiedoilla() {
-       nimi="Aku Ankka" +" "+ HetuTarkistus.rand(1,4000);
+       nimi="Urho Haukka" +" "+ HetuTarkistus.rand(1,4000);
        hetu=HetuTarkistus.arvoHetu();
        katuosoite="Paratiisitie" + HetuTarkistus.rand(1,40);
        postinumero="12345";
-       postiosoite="Ankkalinna";
-       puhelinnumero="111100000";
+       postiosoite="Äänekoski";
+       puhelinnumero="124124124";
        kotitaloudenkoko=3;
        lisatietoja="ei lisätietoja";
         

@@ -93,6 +93,8 @@ private void alusta() {
     chooserAsiakkaat.addSelectionListener(e -> naytaAsiakas());
 }
 
+
+
 /**
  * Näyttää listasta valitun asiakkaan tiedot, tilapäisesti yhteen isoon edit-kenttään
  */

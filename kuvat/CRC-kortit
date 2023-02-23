@@ -4,7 +4,7 @@
 | Vastuualueet:                                      |                   | 
 |  - tietää asiakkaiden nimet, sotun, postinumeron   |                   | 
 |    postiosoitteen, katuosoitteen, puhelinnumeron,  |                   | 
-|    ja kotitalouden koon                		     |                   | 
+|    ja kotitalouden koon                	     |                   | 
 |  - ei tiedä vakuutuksista                          |                   | 
 |  - osaa muuttaa 1| Mattilainen Marko|...           |                   | 
 |  - -merkkijonon asiakkaan tiedoiksi                |                   | 
@@ -24,7 +24,7 @@
 | Luokan nimi:  kotivakuutus                         | Avustajat:        |
 |-------------------------------------------------------------------------
 | Vastuualueet:                                      |                   | 
-|  - tietää vakuutusten kentät					     | - asiakkaat       | 
+|  - tietää vakuutusten kentät			     | - asiakkaat       | 
 |  - osaa tarkastaa tietyn kentän olellisuuden       |                   | 
 |  - osaa muuttaa  1|1|kyllä| 100 |... merkkijonon   |                   |  
 |  - vakuutusten tiedoiksi                           |                   | 
@@ -45,7 +45,7 @@
 | Luokan nimi: matkavakuutus                         | Avustajat:        |
 |-------------------------------------------------------------------------
 | Vastuualueet:                                      |                   | 
-|  - tietää vakuutusten kentät					     | - asiakkaat       | 
+|  - tietää vakuutusten kentät			     | - asiakkaat       | 
 |  - osaa tarkastaa tietyn kentän olellisuuden       |                   | 
 |  - osaa muuttaa  1|1|kyllä| 100 |... merkkijonon   |                   |  
 |  - vakuutusten tiedoiksi                           |                   | 
@@ -66,7 +66,7 @@
 | Luokan nimi: autovakuutukset                       | Avustajat:        |
 |-------------------------------------------------------------------------
 | Vastuualueet:                                      |                   | 
-|  - tietää vakuutusten kentät					     | - asiakkaat       | 
+|  - tietää vakuutusten kentät			     | - asiakkaat       | 
 |  - osaa tarkastaa tietyn kentän olellisuuden       |                   | 
 |  - osaa muuttaa  1|1|kyllä| 100 |... merkkijonon   |                   |  
 |  - vakuutusten tiedoiksi                           |                   | 
@@ -166,6 +166,141 @@
 |                                                    |                   | 
 |                                                    |                   | 
 |-------------------------------------------------------------------------
+
+
+|------------------------------------------------------------------------|
+| Luokan nimi:  kotivakuutukset                      | Avustajat:        |
+|-------------------------------------------------------------------------
+| Vastuualueet:                                      |                   | 
+|  - tietää kotivakuutusten kentät		     |                   | 
+|  - osaa tarkastaa tietyn kentän olellisuuden       |                   | 
+|  - osaa muuttaa  1|1|kyllä| 100 |... merkkijonon   |                   |  
+|  - vakuutusten tiedoiksi                           |                   | 
+|  - antaa merkkijonon i:n kentän tiedot             |                   | 
+|  - osaa laittaa merkkijonon i:neksi kentäksi       |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|-------------------------------------------------------------------------
+
+
+
+|------------------------------------------------------------------------|
+| Luokan nimi:  kotivakuutus.                        | Avustajat:        |
+|-------------------------------------------------------------------------
+| Vastuualueet:                                      | - kotivakuutukset | 
+|  - tietää kotivakuutusten kentät		     |                   | 
+|  - osaa tarkastaa tietyn kentän olellisuuden       |                   | 
+|  - osaa muuttaa  1|1|kyllä| 100 |... merkkijonon   |                   |  
+|  - vakuutusten tiedoiksi                           |                   | 
+|  - antaa merkkijonon i:n kentän tiedot             |                   | 
+|  - osaa laittaa merkkijonon i:neksi kentäksi       |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|-------------------------------------------------------------------------
+
+
+|------------------------------------------------------------------------|
+| Luokan nimi:  autovakuutukset                      | Avustajat:        |
+|-------------------------------------------------------------------------
+| Vastuualueet:                                      |                   | 
+|  - tietää autovakuutusten kentät		     |                   | 
+|  - osaa tarkastaa tietyn kentän olellisuuden       |                   | 
+|  - osaa muuttaa  1|1|kyllä| 100 |... merkkijonon   |                   |  
+|  - vakuutusten tiedoiksi                           |                   | 
+|  - antaa merkkijonon i:n kentän tiedot             |                   | 
+|  - osaa laittaa merkkijonon i:neksi kentäksi       |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|-------------------------------------------------------------------------
+
+
+
+|------------------------------------------------------------------------|
+| Luokan nimi:  autovakuutus.                        | Avustajat:        |
+|-------------------------------------------------------------------------
+| Vastuualueet:                                      | - autovakuutukset | 
+|  - tietää autovakuutusten kentät		     |                   | 
+|  - osaa tarkastaa tietyn kentän olellisuuden       |                   | 
+|  - osaa muuttaa  1|1|kyllä| 100 |... merkkijonon   |                   |  
+|  - vakuutusten tiedoiksi                           |                   | 
+|  - antaa merkkijonon i:n kentän tiedot             |                   | 
+|  - osaa laittaa merkkijonon i:neksi kentäksi       |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|-------------------------------------------------------------------------
+
+
+
+
+|------------------------------------------------------------------------|
+| Luokan nimi:  matkavakuutus                        | Avustajat:        |
+|-------------------------------------------------------------------------
+| Vastuualueet:                                      |                   | 
+|  - tietää matkavakuutusten kentät		     |                   | 
+|  - osaa tarkastaa tietyn kentän olellisuuden       |                   | 
+|  - osaa muuttaa  1|1|kyllä| 100 |... merkkijonon   |                   |  
+|  - vakuutusten tiedoiksi                           |                   | 
+|  - antaa merkkijonon i:n kentän tiedot             |                   | 
+|  - osaa laittaa merkkijonon i:neksi kentäksi       |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|-------------------------------------------------------------------------
+
+
+
+|------------------------------------------------------------------------|
+| Luokan nimi:  matkavakuutus.                        | Avustajat:       |
+|-------------------------------------------------------------------------
+| Vastuualueet:                                      | - matkavakuutukset| 
+|  - tietää matkavakuutusten kentät		     |                   | 
+|  - osaa tarkastaa tietyn kentän olellisuuden       |                   | 
+|  - osaa muuttaa  1|1|kyllä| 100 |... merkkijonon   |                   |  
+|  - vakuutusten tiedoiksi                           |                   | 
+|  - antaa merkkijonon i:n kentän tiedot             |                   | 
+|  - osaa laittaa merkkijonon i:neksi kentäksi       |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|                                                    |                   | 
+|-------------------------------------------------------------------------
+
+
+
+
 
 
 

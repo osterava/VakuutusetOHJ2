@@ -1,7 +1,7 @@
 package fxVakuutukset;
 
 import java.awt.Desktop;
-
+import java.awt.Dialog;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.URI;
@@ -27,10 +27,13 @@ import javafx.scene.control.Button;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import vakuutus.Asiakas;
+import vakuutus.Kotivakuutus;
 import vakuutus.SailoException;
 import vakuutus.Vakuutus;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+
+import java.util.List;
 import java.util.Optional;
 
 
@@ -41,6 +44,7 @@ import java.util.Optional;
  * Pääikkunan controller-java
  */
 public class VakuutuksetGUIController implements Initializable {
+    
 
 
     
@@ -67,6 +71,10 @@ public class VakuutuksetGUIController implements Initializable {
     @FXML private void handleUusiAsiaks() {
        uusiAsiakas();
     }
+    
+    @FXML private void handleUusiKotivakuutus(){
+       uusiKotivakuutus();
+    }
 
 @Override
 public void initialize(URL arg0, ResourceBundle arg1) {
@@ -83,8 +91,8 @@ private Vakuutus vakuutus;
 private TextArea areaJasen = new TextArea(); //TODO poista lopussa
 
 
+
 private void alusta() {
-    chooserAsiakkaat.clear();
     panelJasen.setContent(areaJasen);
     areaJasen.setFont(new Font("Courier New", 12));
     panelJasen.setFitToHeight(true);
@@ -105,7 +113,7 @@ protected void naytaAsiakas() {
 
     areaJasen.setText("");
     try (PrintStream os = TextAreaOutputStream.getTextPrintStream(areaJasen)) {
-        asiakasKohdalla.tulosta(os);
+        tulosta(os,asiakasKohdalla);
     }
 }
 
@@ -153,8 +161,35 @@ protected void hae(int jnro) {
 
 }
 
+/** 
+ * Tekee uuden tyhjän kotivakuutuksen editointia varten 
+ */ 
+public void uusiKotivakuutus() { 
+    
+    Asiakas asiakasKohdalla = chooserAsiakkaat.getSelectedObject();
+    if ( asiakasKohdalla == null ) return; // TODO: käyttäjälle ohjeistus  
+    Kotivakuutus koti = new Kotivakuutus();  
+    koti.rekisteroi();  
+    koti.testiVakuutus(asiakasKohdalla.getTunnusNro());  // TODO: korvaa dialogilla
+    vakuutus.lisaa(koti);  
+    hae(asiakasKohdalla.getTunnusNro());          
+} 
 
 
+/**
+ * Tulostaa asiakkaan tiedot
+ * @param os tietovirta johon tulostetaan
+ * @param asiakas tulostettava jäsen
+ */
+public void tulosta(PrintStream os, final Asiakas asiakas) {
+    os.println("----------------------------------------------");
+    asiakas.tulosta(os);
+    os.println("----------------------------------------------");
+    List<Kotivakuutus> kotivakuutus = vakuutus.annaKotivakuutus(asiakas);
+    for (Kotivakuutus koti: kotivakuutus) 
+        koti.tulosta(os);
+    os.println("----------------------------------------------");
+}
 
 
 

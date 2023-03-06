@@ -188,7 +188,7 @@
                <children>
                   <AnchorPane>
                      <children>
-                        <Button fx:id="lisaaVakuutus" layoutX="46.0" layoutY="3.0" mnemonicParsing="false" onAction="#handleTallenna" prefHeight="26.0" prefWidth="118.0" text="Lisää vakuutus" />
+                        <Button fx:id="lisaaVakuutus" layoutX="46.0" layoutY="3.0" mnemonicParsing="false" onAction="#handleUusiKotivakuutus" prefHeight="26.0" prefWidth="118.0" text="Lisää vakuutus" />
                      </children>
                   </AnchorPane>
                </children>
@@ -216,7 +216,7 @@
             </BorderPane>
             <BorderPane prefHeight="337.0" prefWidth="204.0">
                <bottom>
-                  <ScrollPane fx:id= "panelJasen" maxWidth="200.0" prefHeight="323.0" prefWidth="114.0" BorderPane.alignment="CENTER">
+                  <ScrollPane fx:id="panelJasen" maxWidth="200.0" prefHeight="323.0" prefWidth="114.0" BorderPane.alignment="CENTER">
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>

@@ -1,5 +1,6 @@
 package vakuutus;
 
+import java.util.List;
 
 /**
  * vakuutus-luokka, joka huolehtii jäsenistöstä.  Pääosin kaikki metodit
@@ -10,6 +11,7 @@ package vakuutus;
  */
 public class Vakuutus {
     private final Asiakkaat asiakkaat = new Asiakkaat();
+    private final Kotivakuutukset kotivakuutukset = new Kotivakuutukset();
 
 
     /**
@@ -42,9 +44,9 @@ public class Vakuutus {
      * Asiakas marko1 = new Asiakas(), marko2 = new Asiakas();
      * marko1.rekisteroi(); marko2.rekisteroi();
      * vakuutus.getAsiakkaat() === 0;
-     * vakuutus.lisaa(marko1); kerho.getAsiakkaat() === 1;
-     * vakuutus.lisaa(marko2); kerho.getAsiakkaat() === 2;
-     * vakuutus.lisaa(marko1); kerho.getAsiakkaat() === 3;
+     * vakuutus.lisaa(marko1); vakuutus.getAsiakkaat() === 1;
+     * vakuutus.lisaa(marko2); vakuutus.getAsiakkaat() === 2;
+     * vakuutus.lisaa(marko1); vakuutus.getAsiakkaat() === 3;
      * vakuutus.getAsiakkaat() === 3;
      * vakuutus.annaAsiakas(0) === marko1;
      * vakuutus.annaAsiakas(1) === marko2;
@@ -59,7 +61,50 @@ public class Vakuutus {
         asiakkaat.lisaa(asiakas);
     }
 
+    /**
+     *  lisätään uusi kotivakuutus vakuutusrekisteriin
+     * @param koti lisättävä kotivakuutus
+      * <pre name="test">
+      * #import java.util.*;
+      * 
+      * 
+      *  Vakuutus vak = new Vakuutus();
+      *  Asiakas as1 = new Asiakas(),as2 = new Asiakas(),as3 = new Asiakas();
+      *  as1.rekisteroi(); as2.rekisteroi(); as3.rekisteroi(); 
+      * 
+      *  int id1 = as1.getTunnusNro(); int id2 = as2.getTunnusNro();
+      * 
+      *  Kotivakuutus koti21 = new Kotivakuutus(id1); vak.lisaa(koti21);
+      *  Kotivakuutus koti11 = new Kotivakuutus(id1); vak.lisaa(koti11);
+      *  Kotivakuutus koti22 = new Kotivakuutus(id2); vak.lisaa(koti22);
+      *  Kotivakuutus koti12 = new Kotivakuutus(id2); vak.lisaa(koti12);
+      *  Kotivakuutus koti23 = new Kotivakuutus(id2); vak.lisaa(koti23);
+      *  
+      *  List<Kotivakuutus> loydetyt;
+      *  loydetyt = vak.annaKotivakuutus(as3);
+      *  loydetyt.size() === 0; 
+      *  loydetyt = vak.annaKotivakuutus(as1);
+      *  loydetyt.size() === 2; 
+      *  loydetyt.get(0) == koti11 === true;
+      *  loydetyt.get(1) == koti12 === true;
+      *  loydetyt = vak.annaKotivakuutus(as2);
+      *  loydetyt.size() === 3; 
+      * </pre> 
+      */
+    public void lisaa(Kotivakuutus koti) {
+        kotivakuutukset.lisaa(koti);
+    }
 
+    /**
+     * haetaan kaikki asiakkaiden kotivakuutukset
+     * @param asiakas keneen asiakkaaseen viitataan
+     * @return tietorakenne, jossa viitteet kotivakuutuksiin
+     */
+    public List<Kotivakuutus> annaKotivakuutus(Asiakas asiakas) {
+        return kotivakuutukset.annaKotivakuutukset(asiakas.getTunnusNro());
+    }
+
+    
     /**
      * Palauttaa i:n asiakkaan
      * @param i monesko asiakas palautetaan

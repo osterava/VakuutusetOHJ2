@@ -91,6 +91,7 @@ public class Asiakas {
      *  int n2 = marko2.getTunnusNro();
      *  n1 === n2-1;
      *  </pre>
+     *  
      */
     public int rekisteroi() {
         this.tunnusNro=seuraavaNro;

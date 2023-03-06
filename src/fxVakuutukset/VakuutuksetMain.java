@@ -1,6 +1,7 @@
 package fxVakuutukset;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.stage.Stage;
 import vakuutus.Vakuutus;
 import javafx.scene.Scene;
@@ -33,15 +34,19 @@ public class VakuutuksetMain extends Application {
             
             
             primaryStage.show();
-        } catch(Exception e) {
+            
+
+       } catch(Exception e) {
             e.printStackTrace();
-        }
+        } 
     }
+    
     
     
     
 
     /**
+     * käynnistetään käyttöliittymä
      * @param args Ei käytössä
      */
     public static void main(String[] args) {

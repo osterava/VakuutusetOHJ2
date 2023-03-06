@@ -126,7 +126,7 @@ public void setVakuutus(Vakuutus vakuutus) {
 protected void uusiAsiakas() {
     Asiakas uusi = new Asiakas();
     uusi.rekisteroi();
-    uusi.naytaAkuTiedoilla();
+    uusi.naytaMarkoTiedoilla();
     try {
         vakuutus.lisaa(uusi);
     } catch (SailoException e) {
@@ -152,6 +152,14 @@ protected void hae(int jnro) {
     chooserAsiakkaat.setSelectedIndex(index); 
 
 }
+
+
+
+
+
+
+
+
 
 
 

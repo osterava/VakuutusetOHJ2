@@ -3,6 +3,7 @@ package vakuutus;
 /**
  * @author olliterävä, laura
  * @version 21.2.2023
+ * Vakuutusten asiakkaat, joka osaa lisätä uuden jäsenen
  *
  */
 public class Asiakkaat {

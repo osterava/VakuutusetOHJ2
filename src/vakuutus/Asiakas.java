@@ -8,7 +8,7 @@ import kanta.HetuTarkistus;
 /**
  * @author olliterava, laidmale
  * @version 21.2.2023
- *
+ * Vakuutuksen asiakas joka osaa mm. huolehtia itse tunnutNrosta ja tietää asiakkaan tiedot
  */
 public class Asiakas {
  

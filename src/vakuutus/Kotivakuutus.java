@@ -36,6 +36,9 @@ public class Kotivakuutus {
     
     }
     
+    /**
+     * joskus ehkä käyttöön
+     */
     public Kotivakuutus() {
         // joskus ehkä käyttöön;
     }

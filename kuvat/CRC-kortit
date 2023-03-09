@@ -85,13 +85,13 @@
 
 
 |------------------------------------------------------------------------|
-| Luokan nimi:   vakuutus                            | Avustajat:        |
+| Luokan nimi:   vakuutusrekisteri                   | Avustajat:        |
 |-------------------------------------------------------------------------
 | Vastuualueet:                                      |                   | 
 |                                                    | - asiakkaat       | 
 | - huolehtii asiakkaat ja vakuutukset - luokkien    | - vakuutukset     | 
 |   välisestä yhteistyöstä ja välittää näitä tietoja | - asiakas         | 
-|   pyydettäessä                                     | 			         | 
+|   pyydettäessä                                     | 	                 | 
 | - lukee ja kirjoittaa vakuutusten tiedostoon       |                   | 
 |   pyytämällä apua avustajiltaan                    |                   | 
 |                                                    |                   | 

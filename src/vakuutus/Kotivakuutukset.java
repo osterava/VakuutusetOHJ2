@@ -14,7 +14,8 @@ public class Kotivakuutukset {
     private Collection<Kotivakuutus> alkiot = new ArrayList<Kotivakuutus>();
     
     
-    /*
+   
+    /**
      * alustaminen
      */
     public Kotivakuutukset() {

@@ -53,25 +53,16 @@ public class Asiakas {
      * apumetodi jolla täytetään testiarvot jäsenelle
      * todo: poista kun kaikki toimii :)
      */
-<<<<<<< HEAD
-    public void naytaAkuTiedoilla() {
-       nimi="Urho Haukka" +" "+ HetuTarkistus.rand(1,4000);
-=======
     public void naytaMarkoTiedoilla() {
        nimi="Mattilainen Marko" +" "+ HetuTarkistus.rand(1,4000);
->>>>>>> afb9ecea888358178db2fdf417ced2015b398f3e
        hetu=HetuTarkistus.arvoHetu();
        katuosoite="Maailmatie" + HetuTarkistus.rand(1,40);
        postinumero="12345";
-<<<<<<< HEAD
        postiosoite="Äänekoski";
        puhelinnumero="124124124";
-       kotitaloudenkoko=3;
-=======
        postiosoite="Maailma";
        puhelinnumero="1234567890";
        kotitaloudenkoko=2;
->>>>>>> afb9ecea888358178db2fdf417ced2015b398f3e
        lisatietoja="ei lisätietoja";
         
     }

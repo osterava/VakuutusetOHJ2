@@ -68,7 +68,7 @@ public class Kotivakuutus {
     
     /**
      * Tulostetaan kotivakuutuksen tiedot
-     * @param out tietovirta johon tulostetaan
+     * @param out tietovirta johon tulostetaan "näyttöön"
      */
     public void tulosta(PrintStream out) {
         out.println(kaytossa + " " + pAla + " " + hinta + " " + pvmVoimassa + "...");

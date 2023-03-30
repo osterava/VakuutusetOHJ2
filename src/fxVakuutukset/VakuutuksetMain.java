@@ -55,7 +55,7 @@ public class VakuutuksetMain extends Application {
 
     /**
      * käynnistetään käyttöliittymä
-     * @param args Ei käytössä
+     * @param args  käytössä
      */
     public static void main(String[] args) {
         launch(args);

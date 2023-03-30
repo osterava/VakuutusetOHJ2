@@ -1,12 +1,12 @@
-
-
-id	| id	|onko	|pinta-ala (mˆ2)	|voimassaolo	| onko irtaimistovakuutusta	| asuntotyyppi	|omavastuu (€)
-1	| 2 	|kyllä	|100				|14.2.2023		| kyllä  					| omakotitalo 	|200
-2   | 3 	|kyllä	|300				|10.4.2022 		| ei  						| kerros¢talo 	|200
-3	| 1 	|ei		|150				|14.2.2025 		| kyllä 					| omakotitalo 	|200
-4	| 4 	|kyllä	|100				|14.2.2023 		| kyllä  					| omakotitalo	|200
-5	| 6 	|ei		|100				|14.6.2023 		| ei  						| kerrostalo 	|300
-6	| 2 	|ei		|100				|14.6.2023 		| ei  						| kerrostalo 	|300
-7	| 1 	|ei		|100				|14.6.2023 		| ei  						| kerrostalo 	|300
-
-
+0|0|onko|0.0|0.0|onko irtaimistovakuutusta|asuntotyyppi|omavastuu (€)|0.0
+1|2|kyllä|100.0|14.2|kyllä|omakotitalo|200|0.0
+2|3|kyllä|300.0|10.4|ei|kerros¢talo|200|0.0
+3|1|ei|150.0|14.2|kyllä|omakotitalo|200|0.0
+4|4|kyllä|100.0|14.2|kyllä|omakotitalo|200|0.0
+5|6|ei|100.0|14.6|ei|kerrostalo|300|0.0
+6|2|ei|100.0|14.6|ei|kerrostalo|300|0.0
+7|1|ei|100.0|14.6|ei|kerrostalo|300|0.0
+8|5|käytössä|200.0|112.0|13.3.9999|irtaimisto on vakuutettu|kerrostalo|100.0
+9|7|käytössä|175.0|41.0|13.3.9999|irtaimisto on vakuutettu|kerrostalo|100.0
+10|7|käytössä|181.0|145.0|13.3.9999|irtaimisto on vakuutettu|kerrostalo|100.0
+11|5|käytössä|178.0|122.0|13.3.9999|irtaimisto on vakuutettu|kerrostalo|100.0

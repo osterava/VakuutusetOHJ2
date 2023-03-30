@@ -1,8 +1,11 @@
 package fxVakuutukset;
 
+import fi.jyu.mit.fxgui.Dialogs;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import vakuutus.SailoException;
+import vakuutus.Vakuutus;
 import javafx.scene.control.Button;
 
 /**
@@ -26,4 +29,11 @@ public class EtuIkkunaGUIController {
         alert.setContentText("Tämä ei toimi vielä!");
         alert.showAndWait();
     }
+    
+    
+   
+
+    
+
+    
 }

@@ -27,6 +27,12 @@ public class VakuutuksetMain extends Application {
             primaryStage.setScene(scene);
             primaryStage.setTitle("Vakuutukset");
             
+
+            primaryStage.setOnCloseRequest((event) -> {
+                    if ( !vakuutuksetCtrl.voikoSulkea() ) event.consume();
+                });
+            
+
             
             Vakuutus vakuutus=new Vakuutus();
             vakuutuksetCtrl.setVakuutus(vakuutus);
@@ -34,11 +40,13 @@ public class VakuutuksetMain extends Application {
             
             
             primaryStage.show();
-            
-
-       } catch(Exception e) {
+            if ( !vakuutuksetCtrl.avaa() ) Platform.exit();
+        } catch(Exception e) {
             e.printStackTrace();
-        } 
+        }
+
+
+      
     }
     
     

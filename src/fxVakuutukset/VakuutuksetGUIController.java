@@ -59,13 +59,12 @@ public class VakuutuksetGUIController implements Initializable {
     @FXML private ScrollPane panelJasen;
     @FXML private ListChooser<Asiakas> chooserAsiakkaat;
     
+    private String kerhonnimi = "Kotimaa";
+   
     @FXML private void handleTallenna() {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Huomautus");
-        alert.setHeaderText(null);
-        alert.setContentText("Tämä ei toimi vielä!");
-        alert.showAndWait(); 
+        tallenna();
     }
+
     
    
     @FXML private void handleUusiAsiaks() {
@@ -75,6 +74,12 @@ public class VakuutuksetGUIController implements Initializable {
     @FXML private void handleUusiKotivakuutus(){
        uusiKotivakuutus();
     }
+    
+    @FXML private void handleAvaa() {
+        avaa();
+    }
+
+    
 
 @Override
 public void initialize(URL arg0, ResourceBundle arg1) {
@@ -84,6 +89,26 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 }
 
 
+
+/**
+ * Tietojen tallennus
+ */
+private void tallenna() {
+    try {
+        vakuutus.tallenna();
+    } catch (SailoException e) {
+        Dialogs.showMessageDialog(e.getMessage());
+    }
+}
+
+/**
+ * Tarkistetaan onko tallennus tehty
+ * @return true jos saa sulkea sovelluksen, false jos ei
+ */
+public boolean voikoSulkea() {
+    tallenna();
+    return true;
+}
 
 
 
@@ -174,6 +199,39 @@ public void uusiKotivakuutus() {
     vakuutus.lisaa(koti);  
     hae(asiakasKohdalla.getTunnusNro());          
 } 
+
+/**
+ * Alustaa kerhon lukemalla sen valitun nimisestä tiedostosta
+ * @param nimi tiedosto josta kerhon tiedot luetaan
+ */
+protected void lueTiedosto(String nimi) {
+        try {
+            vakuutus.lueTiedostosta(nimi);
+            hae(0);
+        } catch (SailoException e) {
+            
+            e.printStackTrace();
+        }
+       
+}
+
+private void setTitle(String title) {
+    ModalController.getStage(hakuehto).setTitle(title);
+}
+
+
+
+
+/**
+ * Kysytään tiedoston nimi ja luetaan se
+ * @return true jos onnistui, false jos ei
+ */
+public boolean avaa() {
+    String uusinimi = "vakuutukset";
+    lueTiedosto(uusinimi);
+    return true;
+}
+
 
 
 /**

@@ -1,0 +1,10 @@
+id	|id		| Käytössä |Laukkuturva		| Katettu määrä | 	Kuukausihinta| 
+1	|2		|kyllä 	   |kyllä			|1400 	     	| 	     10      | 
+2   |2		|kyllä     |kyllä			|1500	     	|        10      | 
+3	|6		|ei        |ei				|1500 	     	|        10      | 
+4	|7		|kyllä     |ei  	     	|1500 	     	|        10      | 
+5	|2		|ei        |ei              |1500 	     	| 	     10      | 	
+6	|6		|ei    	   |ei 		     	|1500 	     	|        10      | 	
+7	|2		|ei    	   |kyllä           |1500 	     	|        10      | 	
+
+

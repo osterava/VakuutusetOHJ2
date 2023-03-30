@@ -1,5 +1,6 @@
 package vakuutus;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -10,9 +11,9 @@ import java.util.List;
  * @version 21.02.2023
  */
 public class Vakuutus {
-    private final Asiakkaat asiakkaat = new Asiakkaat();
-    private final Kotivakuutukset kotivakuutukset = new Kotivakuutukset();
-
+    private Asiakkaat asiakkaat = new Asiakkaat();
+    private Kotivakuutukset kotivakuutukset = new Kotivakuutukset();
+    private String hakemisto = "vakuutukset";
 
     /**
      * Palautaa vakuutuksen asiakkaiden
@@ -122,18 +123,42 @@ public class Vakuutus {
      * @throws SailoException jos lukeminen epäonnistuu
      */
     public void lueTiedostosta(String nimi) throws SailoException {
+        File dir = new File(nimi);
+        dir.mkdir();
+        asiakkaat = new Asiakkaat(); // jos luetaan olemassa olevaan niin helpoin tyhjentää näin
+        kotivakuutukset = new Kotivakuutukset();
+
+        hakemisto = nimi;
         asiakkaat.lueTiedostosta(nimi);
+        kotivakuutukset.lueTiedostosta(nimi);
     }
+
+
 
 
     /**
-     * Tallettaa vakuutuksen tiedot tiedostoon
+     * Tallettaa kerhon tiedot tiedostoon
      * @throws SailoException jos tallettamisessa ongelmia
      */
-    public void talleta() throws SailoException {
-        asiakkaat.talleta();
-        // TODO: yritä tallettaa toinen vaikka toinen epäonnistuisi
+    public void tallenna() throws SailoException {
+        String virhe = "";
+        try {
+            asiakkaat.tallenna(hakemisto);
+        } catch ( SailoException ex ) {
+            virhe = ex.getMessage();
+        }
+
+        try {
+            kotivakuutukset.tallenna(hakemisto);
+        } catch ( SailoException ex ) {
+            virhe += ex.getMessage();
+        }
+        if ( !"".equals(virhe) ) throw new SailoException(virhe);
     }
+
+  
+
+
 
 
     /**

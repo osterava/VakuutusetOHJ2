@@ -3,6 +3,7 @@ package vakuutus;
 import java.io.OutputStream;
 import java.io.PrintStream;
 
+import fi.jyu.mit.ohj2.Mjonot;
 import kanta.HetuTarkistus;
 
 /**
@@ -119,7 +120,47 @@ public class Kotivakuutus {
         return asNro;
     }
     
+    /**
+     * Palauttaa harrastuksen tiedot merkkijonona jonka voi tallentaa tiedostoon.
+     * @return harrastus tolppaeroteltuna merkkijonona
+     */
+    @Override
+    public String toString() {
+        return "" + getTunnusNro() + "|" + asNro + "|" + kaytossa + "|" + pAla + "|" + hinta + "|" + pvmVoimassa 
+                + "|" + onkoIV + "|" + asuntotyyppi + "|" + omaVastuu;
+    }
+
+
+    /**
+     * Selvitää kotivakuususten tiedot | erotellusta merkkijonosta.
+     * Pitää huolen että seuraavaNro on suurempi kuin tuleva tunnusnro.
+     * @param rivi josta harrastuksen tiedot otetaan
+     */
+    public void parse(String rivi) {
+        StringBuffer sb = new StringBuffer(rivi);
+        setTunnusNro(Mjonot.erota(sb, '|', getTunnusNro()));
+        asNro = Mjonot.erota(sb, '|', asNro);
+        kaytossa = Mjonot.erota(sb, '|', kaytossa);
+        pAla = Mjonot.erota(sb, '|', pAla);
+        hinta = Mjonot.erota(sb, '|', hinta);
+        pvmVoimassa = Mjonot.erota(sb, '|', pvmVoimassa);
+        onkoIV = Mjonot.erota(sb, '|', onkoIV);
+        asuntotyyppi = Mjonot.erota(sb, '|', asuntotyyppi);
+        omaVastuu = Mjonot.erota(sb, '|', omaVastuu);
+    }
     
+    /**
+     * Asettaa tunnusnumeron ja samalla varmistaa että
+     * seuraava numero on aina suurempi kuin tähän mennessä suurin.
+     * @param nr asetettava tunnusnumero
+     */
+    private void setTunnusNro(int nr) {
+        tunnusnumero = nr;
+        if ( tunnusnumero >= seuraavaNro ) seuraavaNro = tunnusnumero + 1;
+    }
+
+
+
 
 
     

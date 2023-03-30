@@ -1,5 +1,12 @@
 package vakuutus;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.util.Scanner;
+
 /**
  * @author olliterävä, laura
  * @version 21.2.2023
@@ -7,10 +14,11 @@ package vakuutus;
  *
  */
 public class Asiakkaat {
-    private static final int MAX_JASENIA   = 5;
+    private static final int MAX_JASENIA   = 15;
     private int              lkm           = 0;
     private String           tiedostonNimi = "";
-    private Asiakas            alkiot[]      = new Asiakas[MAX_JASENIA];
+    private Asiakas          alkiot[]      = new Asiakas[MAX_JASENIA];
+    private boolean          muutettu      = false;
 
 
     /**
@@ -66,23 +74,67 @@ public class Asiakkaat {
 
 
     /**
-     * Lukee asikkaiden tiedostosta.  Kesken.
+     * Lukee asikkaiden tiedostosta.
      * @param hakemisto tiedoston hakemisto
      * @throws SailoException jos lukeminen epäonnistuu
      */
     public void lueTiedostosta(String hakemisto) throws SailoException {
-        tiedostonNimi = hakemisto + "/nimet.dat";
-        throw new SailoException("Ei osata vielä lukea tiedostoa " + tiedostonNimi);
+        tiedostonNimi = hakemisto + "/asiakkaat.dat";
+        String nimi = tiedostonNimi;
+        File ftied = new File(nimi);
+        
+        try (Scanner fi = new Scanner(new FileInputStream(ftied))) {
+            while ( fi.hasNext() ) {
+                String s = fi.nextLine();
+                if ( s == null || "".equals(s) || s.charAt(0) == ';') continue;
+                Asiakas asiakas = new Asiakas();
+                asiakas.parse(s);
+                lisaa(asiakas);
+            }
+        } catch ( FileNotFoundException e ) {
+            throw new SailoException("Ei saa luettua tiedostoa " + nimi);
+       
+        }     
     }
 
+
+
+    /**
+     * Tallentaa Asiakkaat tiedostoon.  
+     * Tiedoston muoto:
+     * <pre>
+     * 2|Ankka Aku|121103-706Y|Paratiisitie 13|12345|ANKKALINNA|12-1234|||1996|50.0|30.0|Velkaa Roopelle
+     * 3|Ankka Tupu|121153-706Y|Paratiisitie 13|12345|ANKKALINNA|12-1234|||1996|50.0|30.0|Velkaa Roopelle
+     * </pre>
+     * @param hakemisto tallennettavan tiedoston hakemisto
+     * @throws SailoException jos talletus epäonnistuu
+     */
+        public void tallenna(String hakemisto) throws SailoException {
+            File ftied = new File(hakemisto + "/asiakkaat.dat");
+            try (PrintStream fo = new PrintStream(new FileOutputStream(ftied, false))) {
+                for (int i=0; i<this.getLkm(); i++) {
+                    Asiakas asiakas = this.anna(i);
+                    fo.println(asiakas.toString());
+                }
+                muutettu = false;
+                
+            } catch (FileNotFoundException e) {
+                // TODO Auto-generated catch block
+                throw new SailoException("Tiedosto " + ftied.getAbsolutePath() + " ei aukea");
+            } 
+        }
+
+    
+    
 
     /**
      * Tallentaa jäsenistön tiedostoon.  Kesken.
      * @throws SailoException jos talletus epäonnistuu
      */
     public void talleta() throws SailoException {
-        throw new SailoException("Ei osata vielä tallettaa tiedostoa " + tiedostonNimi);
+        tallenna(tiedostonNimi);
     }
+
 
 
     /**
@@ -122,6 +174,14 @@ public class Asiakkaat {
         } catch (SailoException ex) {
             System.out.println(ex.getMessage());
         }
+        
+        try {
+            asiakkaat.tallenna("Asiakkaat");
+        }  catch (SailoException e) {
+            // e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+
     }
 
 }

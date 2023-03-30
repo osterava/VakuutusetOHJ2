@@ -50,7 +50,7 @@
                   <Image url="@../../kuvat/KOTIMAA_LOGO.png" />
                </image>
             </ImageView>
-            <Button fx:id="okNappi" layoutX="529.0" layoutY="343.0" mnemonicParsing="false" onAction="#handleTallenna" text="OK" />
+            <Button fx:id="okNappi" layoutX="529.0" layoutY="343.0" mnemonicParsing="false" onAction="#handleAvaa" text="OK" />
             <Button fx:id="PeruutaNappi" layoutX="570.0" layoutY="343.0" mnemonicParsing="false" onAction="#handleTallenna" text="Cancel" />
             <PasswordField layoutX="214.0" layoutY="288.0" />
       </children>

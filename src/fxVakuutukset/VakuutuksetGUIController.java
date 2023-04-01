@@ -59,7 +59,7 @@ public class VakuutuksetGUIController implements Initializable {
     @FXML private ScrollPane panelJasen;
     @FXML private ListChooser<Asiakas> chooserAsiakkaat;
     
-    private String kerhonnimi = "Kotimaa";
+    private String salasana = "vakuutukset";
    
     @FXML private void handleTallenna() {
         tallenna();
@@ -215,11 +215,6 @@ protected void lueTiedosto(String nimi) {
        
 }
 
-private void setTitle(String title) {
-    ModalController.getStage(hakuehto).setTitle(title);
-}
-
-
 
 
 /**
@@ -227,7 +222,8 @@ private void setTitle(String title) {
  * @return true jos onnistui, false jos ei
  */
 public boolean avaa() {
-    String uusinimi = "vakuutukset";
+    String salainen = EtuIkkunaGUIController.kysyNimi(null, salasana);
+    String uusinimi = salainen;
     lueTiedosto(uusinimi);
     return true;
 }

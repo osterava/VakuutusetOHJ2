@@ -222,7 +222,7 @@ protected void lueTiedosto(String nimi) {
  * @return true jos onnistui, false jos ei
  */
 public boolean avaa() {
-    String salainen = EtuIkkunaGUIController.kysyNimi(null, salasana);
+    String salainen = EtuIkkunaGUIController.kysySalasana(null, salasana);
     String uusinimi = salainen;
     lueTiedosto(uusinimi);
     return true;

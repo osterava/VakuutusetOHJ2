@@ -7,10 +7,10 @@ import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 
 /**
- * Kystään kerhon nimi ja luodaan tätä varten dialogi.
- * 
- * @author vesal
- * @version 2.1.2016
+ * salasanan kysymis-dialogi
+ * @author olliterava, laidmale
+ * @version 1.4.2023
+ *
  */
 public class EtuIkkunaGUIController implements ModalControllerInterface<String> {
     
@@ -23,18 +23,25 @@ public class EtuIkkunaGUIController implements ModalControllerInterface<String> 
         ModalController.closeStage(pField);
     }
 
-    
+    /**
+     * cancel napin metodi
+     */
     @FXML private void handleCancel() {
         ModalController.closeStage(pField);
     }
 
 
+    /**
+     * palautus metodi vastaukselle
+     */
     @Override
     public String getResult() {
         return vastaus;
     }
 
-    
+    /**
+     * oletus salasana TODO: poista
+     */
     @Override
     public void setDefault(String oletus) {
         pField.setText(oletus);
@@ -51,12 +58,12 @@ public class EtuIkkunaGUIController implements ModalControllerInterface<String> 
     
     
     /**
-     * Luodaan nimenkysymisdialogi ja palautetaan siihen kirjoitettu nimi tai null
+     * Luodaan salasanankysymisdialog ja palautetaan siihen kirjoitettu salasana tai null
      * @param modalityStage mille ollaan modaalisia, null = sovellukselle
      * @param oletus mitä nimeä näytetään oletuksena
-     * @return null jos painetaan Cancel, muuten kirjoitettu nimi
+     * @return null jos painetaan Cancel, muuten kirjoitettu salasana
      */
-    public static String kysyNimi(Stage modalityStage, String oletus) {
+    public static String kysySalasana(Stage modalityStage, String oletus) {
         return ModalController.showModal(
                 EtuIkkunaGUIController.class.getResource("EtuIkkunaGUIView.fxml"),
                 "vakuutukset",

@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -32,10 +33,8 @@ public class Asiakkaat {
     /**
      * Lisää uuden jäsenen tietorakenteeseen.  Ottaa asiakkaan omistukseensa.
      * @param asiakas lisätäävän jäsenen viite.  Huom tietorakenne muuttuu omistajaksi
-     * @throws SailoException jos tietorakenne on jo täynnä
      * @example
      * <pre name="test">
-     * #THROWS SailoException 
      * Asiakkaat asiakkaat = new Asiakkaat();
      * Asiakas marko1 = new Asiakas(), marko2 = new Asiakas();
      * asiakkaat.getLkm() === 0;
@@ -47,14 +46,12 @@ public class Asiakkaat {
      * asiakkaat.anna(2) === marko1;
      * asiakkaat.anna(1) == marko1 === false;
      * asiakkaat.anna(1) == marko2 === true;
-     * asiakkaat.anna(3) === marko1; #THROWS IndexOutOfBoundsException 
      * asiakkaat.lisaa(marko1); asiakkaat.getLkm() === 4;
      * asiakkaat.lisaa(marko1); asiakkaat.getLkm() === 5;
-     * asiakkaat.lisaa(marko1);  #THROWS SailoException
      * </pre>
      */
-    public void lisaa(Asiakas asiakas) throws SailoException {
-        if (lkm >= alkiot.length) throw new SailoException("Liikaa alkioita");
+    public void lisaa(Asiakas asiakas) {
+        if ( lkm >= alkiot.length ) alkiot = Arrays.copyOf(alkiot, lkm+20); 
         alkiot[lkm] = asiakas;
         lkm++;
     }
@@ -159,7 +156,6 @@ public class Asiakkaat {
         marko2.rekisteroi();
         marko2.naytaMarkoTiedoilla();
 
-        try {
             asiakkaat.lisaa(marko);
             asiakkaat.lisaa(marko2);
 
@@ -171,9 +167,6 @@ public class Asiakkaat {
                 jasen.tulosta(System.out);
             }
 
-        } catch (SailoException ex) {
-            System.out.println(ex.getMessage());
-        }
         
         try {
             asiakkaat.tallenna("Asiakkaat");

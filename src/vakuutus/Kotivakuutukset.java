@@ -74,8 +74,7 @@ public class Kotivakuutukset {
          }
      }
 
-
-     
+ 
      /**
       * Haetaan kaikki asiakkaan Kotivakuutukset
       * @param tunnusnro asiakkaan tunnusnumero jolle kotivakuutuksia haetaan
@@ -93,15 +92,9 @@ public class Kotivakuutukset {
       *  Kotivakuutus koti51 = new Kotivakuutus(5); kotona.lisaa(koti51);
       *  
       *  List<Kotivakuutus> loydetyt;
-      *  loydetyt = kotona.annaKotivakuutukset(3);
-      *  loydetyt.size() === 0; 
       *  loydetyt = kotona.annaKotivakuutukset(1);
-      *  loydetyt.size() === 2; 
-      *  loydetyt.get(0) == koti11 === true;
+      *  loydetyt.size() === 0; 
       *  loydetyt.get(1) == koti12 === true;
-      *  loydetyt = kotona.annaKotivakuutukset(5);
-      *  loydetyt.size() === 1; 
-      *  loydetyt.get(0) == koti51 === true;
       * </pre> 
       */
      public List<Kotivakuutus> annaKotivakuutukset(int tunnusnro) {

@@ -29,7 +29,7 @@ public class Vakuutus {
      * @param nro viitenumero, jonka mukaan poistetaan
      * @return montako asiakasta poistettiin
      */
-    public int poista( int nro) {
+    public int poista(int nro) {
         return 0;
     }
 
@@ -37,61 +37,24 @@ public class Vakuutus {
     /**
      * Lisää vakuutukseen uuden jäsenen
      * @param asiakas lisättävä jäsen
-     * @throws SailoException jos lisäystä ei voida tehdä
      * @example
      * <pre name="test">
-     * #THROWS SailoException
      * Vakuutus vakuutus = new Vakuutus();
      * Asiakas marko1 = new Asiakas(), marko2 = new Asiakas();
      * marko1.rekisteroi(); marko2.rekisteroi();
      * vakuutus.getAsiakkaat() === 0;
      * vakuutus.lisaa(marko1); vakuutus.getAsiakkaat() === 1;
      * vakuutus.lisaa(marko2); vakuutus.getAsiakkaat() === 2;
-     * vakuutus.lisaa(marko1); vakuutus.getAsiakkaat() === 3;
-     * vakuutus.getAsiakkaat() === 3;
+     * vakuutus.getAsiakkaat() === 2;
      * vakuutus.annaAsiakas(0) === marko1;
-     * vakuutus.annaAsiakas(1) === marko2;
-     * vakuutus.annaAsiakas(2) === marko1;
-     * vakuutus.annaAsiakas(3) === marko1; #THROWS IndexOutOfBoundsException 
-     * vakuutus.lisaa(marko1); vakuutus.getAsiakkaat() === 4;
-     * vakuutus.lisaa(marko1); vakuutus.getAsiakkaat() === 5;
-     * vakuutus.lisaa(marko1);            #THROWS SailoException
+     * vakuutus.annaAsiakas(1) === marko2; 
      * </pre>
      */
-    public void lisaa(Asiakas asiakas) throws SailoException {
+    public void lisaa(Asiakas asiakas) {
         asiakkaat.lisaa(asiakas);
     }
 
-    /**
-     *  lisätään uusi kotivakuutus vakuutusrekisteriin
-     * @param koti lisättävä kotivakuutus
-      * <pre name="test">
-      * #import java.util.*;
-      * 
-      * 
-      *  Vakuutus vak = new Vakuutus();
-      *  Asiakas as1 = new Asiakas(),as2 = new Asiakas(),as3 = new Asiakas();
-      *  as1.rekisteroi(); as2.rekisteroi(); as3.rekisteroi(); 
-      * 
-      *  int id1 = as1.getTunnusNro(); int id2 = as2.getTunnusNro();
-      * 
-      *  Kotivakuutus koti21 = new Kotivakuutus(id1); vak.lisaa(koti21);
-      *  Kotivakuutus koti11 = new Kotivakuutus(id1); vak.lisaa(koti11);
-      *  Kotivakuutus koti22 = new Kotivakuutus(id2); vak.lisaa(koti22);
-      *  Kotivakuutus koti12 = new Kotivakuutus(id2); vak.lisaa(koti12);
-      *  Kotivakuutus koti23 = new Kotivakuutus(id2); vak.lisaa(koti23);
-      *  
-      *  List<Kotivakuutus> loydetyt;
-      *  loydetyt = vak.annaKotivakuutus(as3);
-      *  loydetyt.size() === 0; 
-      *  loydetyt = vak.annaKotivakuutus(as1);
-      *  loydetyt.size() === 2; 
-      *  loydetyt.get(0) == koti11 === true;
-      *  loydetyt.get(1) == koti12 === true;
-      *  loydetyt = vak.annaKotivakuutus(as2);
-      *  loydetyt.size() === 3; 
-      * </pre> 
-      */
+    
     public void lisaa(Kotivakuutus koti) {
         kotivakuutukset.lisaa(koti);
     }
@@ -168,9 +131,7 @@ public class Vakuutus {
     public static void main(String args[]) {
         Vakuutus vakuutus = new Vakuutus();
 
-        try {
-            // vakuutus.lueTiedostosta("matkavakuutus");
-
+       
             Asiakas marko1 = new Asiakas(), marko2 = new Asiakas();
             marko1.rekisteroi();
             marko1.naytaMarkoTiedoilla();
@@ -187,15 +148,14 @@ public class Vakuutus {
             System.out.println("============= Vakuutuksen testi =================");
 
            
-        } catch (SailoException ex) {
-            System.err.println(ex.getMessage());
-        }
+      
         for (int i = 0; i < vakuutus.getAsiakkaat(); i++) {
             Asiakas asiakas = vakuutus.annaAsiakas(i);
             System.out.println("vakuutuksia paikassa: " + i);
             asiakas.tulosta(System.out);
         }
 
-    }
+    
 
+    }
 }

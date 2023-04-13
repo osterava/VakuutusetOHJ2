@@ -160,12 +160,7 @@ protected void uusiAsiakas() {
     Asiakas uusi = new Asiakas();
     uusi.rekisteroi();
     uusi.naytaMarkoTiedoilla();
-    try {
-        vakuutus.lisaa(uusi);
-    } catch (SailoException e) {
-        Dialogs.showMessageDialog("Ongelmia uuden luomisessa " + e.getMessage());
-        return;
-    }
+    vakuutus.lisaa(uusi);
     hae(uusi.getTunnusNro());
 }
 

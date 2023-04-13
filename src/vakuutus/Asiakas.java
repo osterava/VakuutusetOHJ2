@@ -81,7 +81,7 @@ public class Asiakas {
      *  marko2.rekisteroi();
      *  int n1 = marko2.getTunnusNro();
      *  int n2 = marko2.getTunnusNro();
-     *  n1 === n2-1;
+     *  n1 === n2;
      *  </pre>
      *  
      */
@@ -163,7 +163,7 @@ public class Asiakas {
      * 
      * @example
      * <pre name="test">
-     *   Jasen jasen = new Jasen();
+     *   Asiakas jasen = new Asiakas();
      *   jasen.parse("   3  |  Ankka Aku   | 030201-111C");
      *   jasen.getTunnusNro() === 3;
      *   jasen.toString().startsWith("3|Ankka Aku|030201-111C|") === true; // on enemmäkin kuin 3 kenttää, siksi loppu |

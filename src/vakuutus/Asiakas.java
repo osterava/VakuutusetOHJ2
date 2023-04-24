@@ -20,7 +20,7 @@ public class Asiakas {
     private String      postinumero="";
     private String      postiosoite="";
     private String      puhelinnumero="";
-    private int         kotitaloudenkoko=0;
+    private String      kotitaloudenkoko= "0";
     private String      lisatietoja="";
     
     
@@ -63,7 +63,7 @@ public class Asiakas {
        puhelinnumero="124124124";
        postiosoite="Maailma";
        puhelinnumero="1234567890";
-       kotitaloudenkoko=2;
+       kotitaloudenkoko="2";
        lisatietoja="ei lisätietoja";
         
     }
@@ -348,6 +348,31 @@ public class Asiakas {
     }
     public String getPostinumero() {
         return postinumero;
+    }
+    public String setHetu(String s) {
+        hetu = s;
+        return null;
+    }
+    public String setKatuosoite(String s) {
+       katuosoite = s;
+        return null;
+    }
+    public String setPostinumero(String s) {
+        postinumero = s;
+        return null;
+    }
+    public String getKaupunki() {
+        return postiosoite;
+    }
+    public String getPuhelin() {
+        return puhelinnumero;
+        
+    }
+    public String getKoti() {
+        return kotitaloudenkoko;
+    }
+    public String getInfo() {
+        return lisatietoja;
     }
 
 

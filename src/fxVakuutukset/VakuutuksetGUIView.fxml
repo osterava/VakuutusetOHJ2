@@ -123,15 +123,15 @@
                                     <TextField fx:id="editHetu" minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                     <TextField fx:id="editKatuosoite" minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     <TextField fx:id="editPostinumero" minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <TextField minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                    <TextField minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                    <TextField minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                    <TextField minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                    <TextField fx:id="editPostiosoite" minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <TextField fx:id="editPuhellinnumero" minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <TextField fx:id="editKoko" minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <TextField fx:id="editInfo" minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nimi:" textAlignment="RIGHT" wrappingWidth="90.0" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Henkilötunnus:" textAlignment="RIGHT" wrappingWidth="90.29443359375" GridPane.rowIndex="1" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Katuosoite:" textAlignment="RIGHT" wrappingWidth="90.99462890625" GridPane.rowIndex="2" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Postinumero:" textAlignment="RIGHT" wrappingWidth="90.55078125" GridPane.rowIndex="3" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Postiosoite:" textAlignment="RIGHT" wrappingWidth="90.94970703125" GridPane.rowIndex="4" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kaupunki:" textAlignment="RIGHT" wrappingWidth="90.94970703125" GridPane.rowIndex="4" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Puhelinnumero:" textAlignment="RIGHT" wrappingWidth="90.703125" GridPane.rowIndex="5" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kotitalouden koko:" textAlignment="RIGHT" wrappingWidth="104.73095703125" GridPane.rowIndex="6" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lisätietoja:" textAlignment="RIGHT" wrappingWidth="88.12548828125" GridPane.rowIndex="7" />

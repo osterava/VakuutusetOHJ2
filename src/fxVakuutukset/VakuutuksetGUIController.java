@@ -53,7 +53,12 @@ public class VakuutuksetGUIController implements Initializable {
     @FXML private TextField editNimi;
     @FXML private TextField editHetu;
     @FXML private TextField editKatuosoite;
-    @FXML private TextField editPostinumero;    
+    @FXML private TextField editPostinumero; 
+    @FXML private TextField editPostiosoite; 
+    @FXML private TextField editPuhellinnumero;
+    @FXML private TextField editKoko;
+    @FXML private TextField editInfo;   
+    
     
     @FXML private Button lisaaVakuutus;
     @FXML private Button tallenna;
@@ -149,8 +154,8 @@ protected void alusta() {
         chooserAsiakkaat.clear();
         chooserAsiakkaat.addSelectionListener(e -> naytaAsiakas());
         
-        edits = new TextField[]{editNimi, editHetu, editKatuosoite, editPostinumero};          
-    }
+        edits = new TextField[]{editNimi, editHetu, editKatuosoite, editPostinumero,editPostiosoite,editPuhellinnumero,editKoko,editInfo};
+         }
 
    /* // panelJasen.setContent(areaJasen);
     panelJasen.setFitToHeight(true);
@@ -201,7 +206,7 @@ protected void naytaAsiakas() {
 
     if (asiakasKohdalla == null) return;
 
-    areaJasen.setText("");
+    JasenDialogController.naytaJasen(edits, asiakasKohdalla); 
     try (PrintStream os = TextAreaOutputStream.getTextPrintStream(areaJasen)) {
         tulosta(os,asiakasKohdalla);
     }
@@ -355,28 +360,25 @@ private void muokkaaKotivakuutusta() {
 
 
 private void muokkaa(int k) {
-   /* Asiakas asiakas = chooserAsiakkaat.getSelectedObject(); 
-    if (asiakas == null) return;
-    try {
-        asiakas = asiakas.clone();
-    } catch (CloneNotSupportedException e) {
-        // Ei voi tapahtua
-    }
-    asiakas = LisaaAsiakasGUIController.kysyTietue(null, asiakas, k);
-    if (asiakas == null) return;
-    try {
-        vakuutus.korvaaTaiLisaa(asiakas);
-    } catch (SailoException e) {
-        // TODO: näytä dialogi virheestä
-    }
-    hae(asiakas.getTunnusNro());*/
+                Asiakas asiakasKohdalla = chooserAsiakkaat.getSelectedObject();
+                if ( asiakasKohdalla == null ) return; 
+                try { 
+                    Asiakas jasen; 
+                    jasen = JasenDialogController.kysyJasen(null, asiakasKohdalla.clone()); 
+                    if ( jasen == null ) return; 
+                    vakuutus.korvaaTaiLisaa(jasen); 
+                    hae(jasen.getTunnusNro()); 
+                } catch (CloneNotSupportedException e) { 
+                    // 
+               
+            }  
+
+
+
+
+
+
+
+
 }
-
-
-
-
-
-
-
-
 }

@@ -3,6 +3,7 @@ package fxVakuutukset;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import fi.jyu.mit.fxgui.Dialogs;
 import fi.jyu.mit.fxgui.ModalController;
 import fi.jyu.mit.fxgui.ModalControllerInterface;
 import javafx.fxml.Initializable;
@@ -24,8 +25,12 @@ public class JasenDialogController implements ModalControllerInterface<Asiakas>,
     @FXML private TextField editNimi;
     @FXML private TextField editHetu;
     @FXML private TextField editKatuosoite;
-    @FXML private TextField editPostinumero;
-
+    @FXML private TextField editPostinumero; 
+    @FXML private TextField editPostiosoite; 
+    @FXML private TextField editPuhellinnumero;
+    @FXML private TextField editKoko;
+    @FXML private TextField editInfo;   
+    
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         alusta();
@@ -71,10 +76,44 @@ public class JasenDialogController implements ModalControllerInterface<Asiakas>,
 
     
     private void alusta() {
-        edits = new TextField[]{editNimi, editHetu, editKatuosoite, editPostinumero};  
-        editNimi.setOnKeyReleased( e -> kasitteleMuutosJaseneen(editNimi));
+        edits = new TextField[]{editNimi, editHetu, editKatuosoite, editPostinumero,editPostiosoite,editPuhellinnumero,editKoko,editInfo};
+               int i = 0;
+               for (TextField edit : edits) {
+                    final int k = ++i;
+                    edit.setOnKeyReleased( e -> kasitteleMuutosAsiakkaaseen(k, (TextField)(e.getSource())));
+                }
     }
     
+    private void kasitteleMuutosAsiakkaaseen(int k, TextField edit) {
+                if (jasenKohdalla == null) return;
+                 String s = edit.getText();
+                 String virhe = null;
+                 switch (k) {
+                    case 1 : virhe = jasenKohdalla.setNimi(s); break;
+                    case 2 : virhe = jasenKohdalla.setHetu(s); break;
+                    case 3 : virhe = jasenKohdalla.setKatuosoite(s); break;
+                    case 4 : virhe = jasenKohdalla.setPostinumero(s); break;
+                    default:
+                 }
+                 if (virhe == null) {
+                     Dialogs.setToolTipText(edit,"");
+                     edit.getStyleClass().removeAll("virhe");
+                     naytaVirhe(virhe);
+                 } else {
+                     Dialogs.setToolTipText(edit,virhe);
+                     edit.getStyleClass().add("virhe");
+                     naytaVirhe(virhe);
+                 }
+             }
+
+         /**
+          * Tyhjentään tekstikentät 
+          * @param edits tauluko jossa tyhjennettäviä tektsikenttiä
+          */
+         public static void tyhjenna(TextField[] edits) {
+             for (TextField edit : edits)
+                edit.setText("");
+        }
 
     private void naytaVirhe(String virhe) {
         if ( virhe == null || virhe.isEmpty() ) {
@@ -110,13 +149,17 @@ public class JasenDialogController implements ModalControllerInterface<Asiakas>,
      * @param edits taulukko jossa tekstikenttiä
      * @param jasen näytettävä jäsen
      */
-    public static void naytaJasen(TextField[] edits, Asiakas jasen) {
-        if (jasen == null) return;
-        edits[0].setText(jasen.getNimi());
-        edits[1].setText(jasen.getHetu());
-        edits[2].setText(jasen.getKatuosoite());
-        edits[3].setText(jasen.getPostinumero());
-    }
+     public static void naytaJasen(TextField[] edits, Asiakas jasen) {
+                edits[0].setText(jasen.getNimi());
+                edits[1].setText(jasen.getHetu());
+                edits[2].setText(jasen.getKatuosoite());
+                edits[3].setText(jasen.getPostinumero());
+                edits[4].setText(jasen.getKaupunki());
+                edits[5].setText(jasen.getPuhelin());
+                edits[6].setText(jasen.getKoti());
+                edits[7].setText(jasen.getInfo());
+                     }
+                    
   
     
     /**

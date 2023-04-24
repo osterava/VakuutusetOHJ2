@@ -33,6 +33,7 @@ public class VakuutuksetMain extends Application {
                 });
             
 
+           
             
             Vakuutus vakuutus=new Vakuutus();
             vakuutuksetCtrl.setVakuutus(vakuutus);

@@ -159,6 +159,124 @@ public class Kotivakuutus {
         if ( tunnusnumero >= seuraavaNro ) seuraavaNro = tunnusnumero + 1;
     }
 
+    /**
+     * @return harrastukse kenttien lukumäärä
+     */
+    public int getKenttia() {
+        return 5;
+    }
+
+
+    /**
+     * @return ensimmäinen käyttäjän syötettävän kentän indeksi
+     */
+    public int ekaKentta() {
+        return 2;
+    }
+    
+
+    /**
+     * @param k minkä kentän kysymys halutaan
+     * @return valitun kentän kysymysteksti
+     */
+    public String getKysymys(int k) {
+        switch (k) {
+            case 0:
+                return "tunnusnumero";
+            case 1:
+                return "asNro";
+            case 2:
+                return "kaytossa";
+            case 3:
+                return "pAla";
+            case 5:
+                return "pvmVoimassa";
+            case 6:
+                return "onkoIV";
+            case 7:
+                return "asuntotyyppi";
+            case 8:
+                return "omaVastuu";
+            default:
+                return "???";
+        }
+        
+    }
+
+ 
+    public String anna(int k) {
+        switch (k) {
+            case 0:
+                return "" + tunnusnumero;
+            case 1:
+                return "" + asNro;
+            case 2:
+                return kaytossa;
+            case 3:
+                return "" + pAla;
+            case 4:
+                return "" + hinta;
+            case 5:
+                return "" + pvmVoimassa;
+            case 6:
+                return "" + onkoIV;
+            case 7:
+                return "" + asuntotyyppi;
+            case 8:
+                return "" + omaVastuu;
+            default:
+                return "???";
+        }
+    }
+
+    /**
+     * Asetetaan valitun kentän sisältö.  Mikäli asettaminen onnistuu,
+     * palautetaan null, muutoin virheteksti.
+     * @param k minkä kentän sisältö asetetaan
+     * @param s asetettava sisältö merkkijonona
+     * @return null jos ok, muuten virheteksti
+     */
+    public String aseta(int k, String s) {
+        String st = s.trim();
+        StringBuffer sb = new StringBuffer(st);
+        switch (k) {
+            case 0:
+                setTunnusNro(Mjonot.erota(sb, '$', getTunnusNro()));
+                return null;
+            case 1:
+                asNro = Mjonot.erota(sb, '$', tunnusnumero);
+                return null;
+            case 2:
+                kaytossa = st;
+                return null;
+            case 3:
+                pAla = Mjonot.erota(sb, '$', pAla);
+                return null;
+            case 4:
+                hinta = Mjonot.erota(sb, '$', hinta);
+                return null;
+            case 5:
+                pvmVoimassa = st;
+                return null;
+            case 6:
+                onkoIV = st;
+                return null;
+            case 7:
+                asuntotyyppi = st;
+                return null;
+            case 8:
+                omaVastuu = Mjonot.erota(sb, '$', omaVastuu);
+                return null;
+          
+            default:
+                return "Väärä kentän indeksi";
+        }
+    }
+    
+    @Override
+    public Kotivakuutus clone() throws CloneNotSupportedException { 
+        return (Kotivakuutus)super.clone();
+    }
 
 
 

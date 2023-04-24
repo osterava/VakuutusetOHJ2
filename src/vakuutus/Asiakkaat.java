@@ -177,4 +177,18 @@ public class Asiakkaat {
 
     }
 
+
+     public void korvaaTaiLisaa(Asiakas asiakas){
+        int id = asiakas.getTunnusNro();
+        for (int i = 0; i < lkm; i++) {
+            if ( alkiot[i].getTunnusNro() == id ) {
+                alkiot[i] = asiakas;
+                muutettu = true;
+                return;
+            }
+        }
+        lisaa(asiakas);
+    }
+
+
 }

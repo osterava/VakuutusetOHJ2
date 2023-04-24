@@ -79,6 +79,24 @@ public class Vakuutus {
         return asiakkaat.anna(i);
     }
 
+    /**
+     * KOrvaa asiakkaan jolla sama id
+     * @param asiakas millä korvataan
+     */
+    public void korvaaTaiLisaa(Asiakas asiakas) {
+        asiakkaat.korvaaTaiLisaa(asiakas);
+    }
+
+    /** 
+     * Korvaa harrastuksen tietorakenteessa.  Ottaa harrastuksen omistukseensa. 
+     * Etsitään samalla tunnusnumerolla oleva harrastus.  Jos ei löydy, 
+     * niin lisätään uutena harrastuksena. 
+     * @param koti lisärtävän vakuutuksen viite.
+     */ 
+    public void korvaaTaiLisaa(Kotivakuutus koti) { 
+        kotivakuutukset.korvaaTaiLisaa(koti); 
+    } 
+
 
     /**
      * Lukee kerhon tiedot tiedostosta

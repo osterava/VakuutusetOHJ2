@@ -189,7 +189,21 @@ public class Asiakas {
         lisatietoja = Mjonot.erota(sb, '|', lisatietoja);
     }
 
-    
+    /**
+     * @return montako kenttaa
+     */
+    public int getKenttia() {
+        return 9;
+    }
+
+    /**
+     * Eka kenttä joka on mielekäs kysyttäväksi
+     * @return ekan kentän indeksi
+     */
+    public int ekaKentta() {
+        return 1;
+    }
+
     
     /**
      * @return nimi
@@ -198,5 +212,143 @@ public class Asiakas {
         
         return this.nimi;
     }
+
+    /** 
+     * Antaa k:n kentän sisällön merkkijonona 
+     * @param k monenenko kentän sisältö palautetaan 
+     * @return kentän sisältö merkkijonona 
+     */ 
+    public String getAvain(int k) { 
+        switch ( k ) { 
+        case 0: return "" + tunnusNro; 
+        case 1: return "" + nimi.toUpperCase(); 
+        case 2: return "" + hetu; 
+        case 3: return "" + katuosoite; 
+        case 4: return "" + postinumero; 
+        case 5: return "" + postiosoite; 
+        case 6: return "" + puhelinnumero; 
+        case 7: return "" + kotitaloudenkoko; 
+        case 8: return "" + lisatietoja; 
+        default: return "älä jaksa"; 
+        } 
+    } 
+    
+    /**
+     * Palauttaa k:tta jäsenen kenttää vastaavan kysymyksen
+     * @param k kuinka monennen kentän kysymys palautetaan (0-alkuinen)
+     * @return k:netta kenttää vastaava kysymys
+     */
+    public String getKysymys(int k) {
+        switch ( k ) {
+        case 0: return "Tunnus nro";
+        case 1: return "nimi";
+        case 2: return "hetu";
+        case 3: return "katuosoite";
+        case 4: return "postinumero";
+        case 5: return "postiosoite";
+        case 6: return "puhelinnumero";
+        case 7: return "kotitaloudenkoko";
+        case 8: return "lisatietoja";
+        default: return "Kokeile uudestaan";
+        }
+    }
+
+    
+    /**
+     * Antaa k:n kentän sisällön merkkijonona
+     * @param k monenenko kentän sisältö palautetaan
+     * @return kentän sisältö merkkijonona
+     */
+    public String anna(int k) {
+        switch ( k ) {
+        case 0: return "" + tunnusNro; 
+        case 1: return "" + nimi.toUpperCase(); 
+        case 2: return "" + hetu; 
+        case 3: return "" + katuosoite; 
+        case 4: return "" + postinumero; 
+        case 5: return "" + postiosoite; 
+        case 6: return "" + puhelinnumero; 
+        case 7: return "" + kotitaloudenkoko; 
+        case 8: return "" + lisatietoja; 
+        default: return "Äääliö";
+        }
+    }
+
+    
+   /**     
+    * Asettaa k:n kentän arvoksi parametrina tuodun merkkijonon arvon
+    * @param k kuinka monennen kentän arvo asetetaan
+    * @param jono jonoa joka asetetaan kentän arvoksi
+    * @return null jos asettaminen onnistuu, muuten vastaava virheilmoitus.
+    * @example
+    * <pre name="test">
+    *   Jasen jasen = new Jasen();
+    *   jasen.aseta(1,"Ankka Aku") === null;
+    *   jasen.aseta(2,"kissa") =R= "Hetu liian lyhyt"
+    *   jasen.aseta(2,"030201-1111") === "Tarkistusmerkin kuuluisi olla C"; 
+    *   jasen.aseta(2,"030201-111C") === null; 
+    *   jasen.aseta(9,"kissa") === "Liittymisvuosi väärin jono = \"kissa\"";
+    *   jasen.aseta(9,"1940") === null;
+    * </pre>
+    */
+    public String aseta(int k, String jono) {
+        String aasi = " " + kotitaloudenkoko;
+        String tjono = jono.trim();
+        StringBuffer sb = new StringBuffer(tjono);
+        switch ( k ) {
+        case 0:
+            setTunnusNro(Mjonot.erota(sb, '§', getTunnusNro()));
+            return null;
+        case 1:
+            nimi = tjono;
+            return null;
+        case 2:
+            hetu = tjono;
+            return null;
+        case 3:
+            katuosoite = tjono;
+            return null;
+        case 4:
+            postinumero = tjono;
+            return null;
+        case 5:
+            postiosoite = tjono;
+            return null;
+        case 6:
+            puhelinnumero = tjono;
+            return null;
+        case 7:
+            aasi = tjono;
+            aasi.toUpperCase();
+            return null;
+        case 8:
+            lisatietoja = tjono;
+            return null;
+        default:
+            return "yritä uudestaan";
+        }
+    }
+
+
+    @Override
+    public Asiakas clone() throws CloneNotSupportedException {
+        Asiakas uusi;
+        uusi = (Asiakas)super.clone();
+        return uusi;
+    }
+    public String setNimi(String s) {
+        nimi = s;
+        return null;
+    }
+    public String getHetu() {
+        return hetu;
+    }
+    public String getKatuosoite() {
+        return katuosoite;
+    }
+    public String getPostinumero() {
+        return postinumero;
+    }
+
 
 }

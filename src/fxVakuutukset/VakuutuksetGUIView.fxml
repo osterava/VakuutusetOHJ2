@@ -103,7 +103,7 @@
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <GridPane layoutX="8.0" layoutY="-1.0" minWidth="-Infinity" AnchorPane.bottomAnchor="-78.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                              <GridPane fx:id="gridAsiakas" layoutX="8.0" layoutY="-1.0" minWidth="-Infinity" AnchorPane.bottomAnchor="-78.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
                                 <columnConstraints>
                                   <ColumnConstraints halignment="CENTER" maxWidth="115.0" minWidth="10.0" prefWidth="113.0" />
                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="10.0" prefWidth="138.0" />
@@ -119,10 +119,10 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" />
                                 </rowConstraints>
                                  <children>
-                                    <TextField minWidth="157.0" GridPane.columnIndex="1" />
-                                    <TextField minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <TextField minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <TextField minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField fx:id="editNimi" minWidth="157.0" GridPane.columnIndex="1" />
+                                    <TextField fx:id="editHetu" minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="editKatuosoite" minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="editPostinumero" minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                     <TextField minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                     <TextField minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                     <TextField minWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
@@ -154,7 +154,7 @@
                         <content>
                           <AnchorPane>
                                  <children>
-                                    <GridPane>
+                                    <GridPane fx:id="tableKotivakuutus">
                                        <columnConstraints>
                                           <ColumnConstraints halignment="CENTER" maxWidth="108.0" minWidth="10.0" prefWidth="108.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="92.0" />

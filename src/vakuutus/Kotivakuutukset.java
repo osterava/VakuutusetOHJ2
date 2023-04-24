@@ -9,6 +9,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.*;
+
 
 /**
  * 
@@ -17,7 +24,7 @@ import java.util.Scanner;
  *
  */
 public class Kotivakuutukset {
-    private Collection<Kotivakuutus> alkiot = new ArrayList<Kotivakuutus>();
+    private List<Kotivakuutus> alkiot = new ArrayList<Kotivakuutus>();
     
     
    
@@ -133,6 +140,16 @@ public class Kotivakuutukset {
              System.out.print(koti.getAsNro() + " ");
              koti.tulosta(System.out);
          }
+     }
+     public void korvaaTaiLisaa(Kotivakuutus vakuutus){
+         int id = vakuutus.getTunnusNro();
+         for (int i = 0; i < alkiot.size(); i++) {
+             if (alkiot.get(i).getTunnusNro() == id) {
+                 alkiot.set(i, vakuutus);
+                 return;
+             }
+         }
+         lisaa(vakuutus);
      }
 
 

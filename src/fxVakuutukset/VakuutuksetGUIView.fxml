@@ -170,21 +170,21 @@
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" />
                                        </rowConstraints>
                                        <children>
-                                          <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                          <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <TextField fx:id="editVoimassaolo" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextField fx:id="editAsunto" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                           <Label text="Käytössä" />
                                           <Label text="Voimassaoloaika" GridPane.rowIndex="3" />
                                           <Label text="Asuntotyyppi" GridPane.rowIndex="5" />
                                           <Label text="Pinta-ala" GridPane.rowIndex="1" />
-                                          <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="editPintaala" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                           <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="19.0" prefWidth="51.0" GridPane.columnIndex="1" />
                                           <Label text="Irtamisto" GridPane.rowIndex="4" />
                                           <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="19.0" prefWidth="51.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                           <Label text="Omavastuu" GridPane.rowIndex="6" />
-                                          <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <TextField fx:id="editOmavastuu" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                           <Label GridPane.rowIndex="7" />
                                           <Label text="Kuukausihinta" GridPane.rowIndex="2" />
-                                          <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField fx:id="editHinta" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                        </children>
                                     </GridPane>
                                  </children>

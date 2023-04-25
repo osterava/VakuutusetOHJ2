@@ -9,6 +9,7 @@ import fi.jyu.mit.fxgui.ModalControllerInterface;
 import javafx.fxml.Initializable;
 import javafx.stage.Stage;
 import vakuutus.Asiakas;
+import vakuutus.Vakuutus;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -31,6 +32,13 @@ public class JasenDialogController implements ModalControllerInterface<Asiakas>,
     @FXML private TextField editKoko;
     @FXML private TextField editInfo;   
     
+    
+    @FXML private TextField editPintaala;
+    @FXML private TextField editHinta;
+    @FXML private TextField editVoimassaolo;
+    @FXML private TextField editAsunto; 
+    @FXML private TextField editOmavastuu; 
+    
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         alusta();
@@ -44,9 +52,12 @@ public class JasenDialogController implements ModalControllerInterface<Asiakas>,
     @Override
     public void setDefault(Asiakas oletus) {
         jasenKohdalla = oletus;
-        naytaJasen(edits, jasenKohdalla);    
+        naytaJasen(edits, jasenKohdalla);   
+        
+       
     }
 
+    
     
     @Override
     public void handleShown() {
@@ -160,7 +171,9 @@ public class JasenDialogController implements ModalControllerInterface<Asiakas>,
                 edits[7].setText(jasen.getInfo());
                      }
                     
-  
+    
+                     
+   
     
     /**
      * Luodaan jäsenen kysymisdialogi ja palautetaan sama tietue muutettuna tai null

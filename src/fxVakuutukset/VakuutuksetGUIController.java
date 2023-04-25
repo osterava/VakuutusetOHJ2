@@ -59,6 +59,12 @@ public class VakuutuksetGUIController implements Initializable {
     @FXML private TextField editKoko;
     @FXML private TextField editInfo;   
     
+    @FXML private TextField editPintaala;
+    @FXML private TextField editHinta;
+    @FXML private TextField editVoimassaolo;
+    @FXML private TextField editAsunto; 
+    @FXML private TextField editOmavastuu; 
+    
     
     @FXML private Button lisaaVakuutus;
     @FXML private Button tallenna;
@@ -70,7 +76,7 @@ public class VakuutuksetGUIController implements Initializable {
     @FXML private ScrollPane panelJasen;
     @FXML private ListChooser<Asiakas> chooserAsiakkaat;
     @FXML private GridPane gridKotivakuutus;
-    
+    @FXML private StringGrid<Asiakas> tablekotivakuutus;
     private String salasana = "vakuutukset";
    
     @FXML private void handleTallenna() {
@@ -210,7 +216,41 @@ protected void naytaAsiakas() {
     try (PrintStream os = TextAreaOutputStream.getTextPrintStream(areaJasen)) {
         tulosta(os,asiakasKohdalla);
     }
+    naytaVakuutukset(asiakasKohdalla);
+    
+    
 }
+
+
+
+private void naytaVakuutukset(Asiakas jasen) {
+    tablekotivakuutus.clear();
+    if ( jasen == null ) return;
+    
+    List<Kotivakuutus> vakuutuukset = vakuutus.annaKotivakuutus(jasen);
+    if ( vakuutuukset.size() == 0 ) return;
+    for (Kotivakuutus har: vakuutuukset)
+        naytaVakuutus(har); 
+}
+
+
+
+private void naytaVakuutus(Vakuutus har) {
+    int kenttia = har.getKenttia(); 
+    String[] rivi = new String[kenttia-har.ekaKentta()]; 
+    for (int i=0, k=har.ekaKentta(); k < kenttia; i++, k++) 
+        rivi[i] = har.anna(k); 
+    tablekotivakuutus.add(rivi);
+}
+
+
+
+
+
+
+
+
+
 
 
 /**

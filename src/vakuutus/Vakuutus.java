@@ -3,6 +3,8 @@ package vakuutus;
 import java.io.File;
 import java.util.List;
 
+import kanta.Tietue;
+
 /**
  * vakuutus-luokka, joka huolehtii jäsenistöstä.  Pääosin kaikki metodit
  * ovat vain "välittäjämetodeja" jäsenistöön.
@@ -10,7 +12,7 @@ import java.util.List;
  * @author olliterävä, laidmale
  * @version 21.02.2023
  */
-public class Vakuutus {
+public class Vakuutus  {
     private Asiakkaat asiakkaat = new Asiakkaat();
     private Kotivakuutukset kotivakuutukset = new Kotivakuutukset();
     private String hakemisto = "vakuutukset";
@@ -176,4 +178,7 @@ public class Vakuutus {
     
 
     }
+
+
+   
 }

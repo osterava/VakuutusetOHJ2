@@ -60,8 +60,10 @@ public class VakuutuksetGUIController implements Initializable {
     @FXML private TextField editInfo;   
     
     @FXML private TextField editPintaala;
+    @FXML private TextField editKaytossa; 
     @FXML private TextField editHinta;
     @FXML private TextField editVoimassaolo;
+    @FXML private TextField editIrtaimisto;
     @FXML private TextField editAsunto; 
     @FXML private TextField editOmavastuu; 
     
@@ -142,10 +144,8 @@ public boolean voikoSulkea() {
 
 
 
-private Vakuutus vakuutus;
+Vakuutus vakuutus;
 private TextArea areaJasen = new TextArea(); //TODO poista lopussa
-private static Asiakas apuAsiakas = new Asiakas();
-private static Kotivakuutus apuVakuutus = new Kotivakuutus();
 private TextField[] edits;
 private TextField[] edits2;
 private int kentta = 0;
@@ -161,45 +161,9 @@ protected void alusta() {
         chooserAsiakkaat.addSelectionListener(e -> naytaAsiakas());
         
         edits = new TextField[]{editNimi, editHetu, editKatuosoite, editPostinumero,editPostiosoite,editPuhellinnumero,editKoko,editInfo};
+        edits2 = new TextField[]{editKaytossa,editPintaala,editHinta,editVoimassaolo,editIrtaimisto,editAsunto,editOmavastuu};
+        
          }
-
-   /* // panelJasen.setContent(areaJasen);
-    panelJasen.setFitToHeight(true);
-    cbKentat.clear(); 
-    for (int k=apuAsiakas.ekaKentta(); k<apuAsiakas.getKenttia(); k++) {
-        cbKentat.add(apuAsiakas.getKysymys(k));
-    }
-    cbKentat.setSelectedIndex(0);
-    
-    chooserAsiakkaat.clear();
-    chooserAsiakkaat.addSelectionListener(e -> naytaAsiakas());
-    
-    
-    
-    edits = JasenDialogController.luoKentat(gridAsiakas, new Asiakas());      
-    for (TextField edit: edits)   
-        if ( edit != null ) {   
-            edit.setEditable(false);   
-            edit.setOnMouseClicked(e -> { if ( e.getClickCount() > 1 ) muokkaa(getFieldId(edit,kentta)); });  
-            edit.focusedProperty().addListener((a,o,n) -> kentta = getFieldId(edit,kentta)); 
-        } 
-  
-    edits2 = JasenDialogController.luoKentat(gridKotivakuutus, new Kotivakuutus());      
-    for (TextField edit: edits)   
-        if ( edit != null ) {   
-            edit.setEditable(false);   
-            edit.setOnMouseClicked(e -> { if ( e.getClickCount() > 1 ) muokkaa(getFieldId(edit,kentta)); });  
-            edit.focusedProperty().addListener((a,o,n) -> kentta = getFieldId(edit,kentta)); 
-        } 
-    
-    int eka = apuVakuutus.ekaKentta(); 
-    int lkm = apuVakuutus.getKenttia(); 
-    String[] headings = new String[lkm-eka]; 
-    for (int i=0, k=eka; k<lkm; i++, k++) headings[i] = apuVakuutus.getKysymys(k); 
-    
-    gridKotivakuutus.setOnMouseClicked( e -> { if ( e.getClickCount() > 1 ) muokkaaKotivakuutusta(); } );
-    gridKotivakuutus.setOnKeyPressed( e -> {if ( e.getCode() == KeyCode.F2 ) muokkaaKotivakuutusta();});  */
-
 
 
 
@@ -213,6 +177,7 @@ protected void naytaAsiakas() {
     if (asiakasKohdalla == null) return;
 
     JasenDialogController.naytaJasen(edits, asiakasKohdalla); 
+    JasenDialogController.naytaVakuutus(edits2, asiakasKohdalla); 
     try (PrintStream os = TextAreaOutputStream.getTextPrintStream(areaJasen)) {
         tulosta(os,asiakasKohdalla);
     }
@@ -236,11 +201,7 @@ private void naytaVakuutukset(Asiakas jasen) {
 
 
 private void naytaVakuutus(Vakuutus har) {
-    int kenttia = har.getKenttia(); 
-    String[] rivi = new String[kenttia-har.ekaKentta()]; 
-    for (int i=0, k=har.ekaKentta(); k < kenttia; i++, k++) 
-        rivi[i] = har.anna(k); 
-    tablekotivakuutus.add(rivi);
+   //
 }
 
 
@@ -262,6 +223,10 @@ public void setVakuutus(Vakuutus vakuutus) {
     
 }       
 
+public Vakuutus getVakuutus() {
+    return vakuutus;
+    
+}       
 
 /**
  * Luo uuden asiakkaan jota aletaan editoimaan 

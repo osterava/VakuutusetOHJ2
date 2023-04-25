@@ -16,12 +16,12 @@ public class Kotivakuutus {
     private int tunnusnumero;
     private int asNro;
     private String kaytossa;
-    private double pAla;
-    private double hinta;
+    private String pAla;
+    private String hinta;
     private String pvmVoimassa;
     private String onkoIV;
     private String asuntotyyppi;
-    private double omaVastuu;
+    private String omaVastuu;
     
     private static int seuraavaNro = 1;
     
@@ -59,12 +59,12 @@ public class Kotivakuutus {
     public void testiVakuutus(int nro) {
         asNro = nro;
         kaytossa = "käytössä";
-        pAla = HetuTarkistus.rand(10,300);
-        hinta = HetuTarkistus.rand(10,150);
+       // pAla = HetuTarkistus.rand(10,300);
+       // hinta = HetuTarkistus.rand(10,150);
         pvmVoimassa = "13.3.9999";
         onkoIV = "irtaimisto on vakuutettu";
         asuntotyyppi = "kerrostalo";
-        omaVastuu = 100;
+       // omaVastuu = 100;
     }
     
     /**
@@ -276,6 +276,34 @@ public class Kotivakuutus {
     @Override
     public Kotivakuutus clone() throws CloneNotSupportedException { 
         return (Kotivakuutus)super.clone();
+    }
+
+    public String getKaytossa() {
+        return kaytossa;
+    }
+
+    public String getPala() {
+        return pAla;
+    }
+
+    public String getKK() {
+        return hinta;
+    }
+
+    public String getVoimassa() {
+        return pvmVoimassa;
+    }
+
+    public String getIrtaimisto() {
+        return onkoIV;
+    }
+
+    public String getAsunto() {
+        return asuntotyyppi;
+    }
+
+    public String getOmavastuu() {
+        return omaVastuu;
     }
 
 

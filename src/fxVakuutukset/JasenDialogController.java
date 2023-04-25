@@ -1,6 +1,7 @@
 package fxVakuutukset;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import fi.jyu.mit.fxgui.Dialogs;
@@ -9,14 +10,16 @@ import fi.jyu.mit.fxgui.ModalControllerInterface;
 import javafx.fxml.Initializable;
 import javafx.stage.Stage;
 import vakuutus.Asiakas;
+import vakuutus.Kotivakuutus;
 import vakuutus.Vakuutus;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import fi.jyu.mit.ohj2.Mjonot;
 
 /**
  * Jäsenelle oma kontrolleri
- * @author vesal
+ * @author Osterava
  * @version 20.3.2023
  *
  */
@@ -34,10 +37,14 @@ public class JasenDialogController implements ModalControllerInterface<Asiakas>,
     
     
     @FXML private TextField editPintaala;
+    @FXML private TextField editKaytossa; 
     @FXML private TextField editHinta;
     @FXML private TextField editVoimassaolo;
+    @FXML private TextField editIrtaimisto;
     @FXML private TextField editAsunto; 
     @FXML private TextField editOmavastuu; 
+    private static Vakuutus vakuutus;
+    
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -84,7 +91,7 @@ public class JasenDialogController implements ModalControllerInterface<Asiakas>,
     
     private Asiakas jasenKohdalla;
     private TextField[] edits;
-
+    private TextField[] edits2;
     
     private void alusta() {
         edits = new TextField[]{editNimi, editHetu, editKatuosoite, editPostinumero,editPostiosoite,editPuhellinnumero,editKoko,editInfo};
@@ -93,6 +100,8 @@ public class JasenDialogController implements ModalControllerInterface<Asiakas>,
                     final int k = ++i;
                     edit.setOnKeyReleased( e -> kasitteleMuutosAsiakkaaseen(k, (TextField)(e.getSource())));
                 }
+               edits2 = new TextField[]{editKaytossa,editPintaala,editHinta,editVoimassaolo,editIrtaimisto,editAsunto,editOmavastuu};
+               
     }
     
     private void kasitteleMuutosAsiakkaaseen(int k, TextField edit) {
@@ -172,7 +181,31 @@ public class JasenDialogController implements ModalControllerInterface<Asiakas>,
                      }
                     
     
+     /**
+      * Näytetään jäsenen tiedot TextField komponentteihin
+      * @param edits taulukko jossa tekstikenttiä
+      * @param asiakas näytettävä vakuutus
+      */
+      public static void naytaVakuutus(TextField[] edits, Asiakas asiakas) {
+          vakuutus = VakuutuksetGUIController.getVakuutus();
+          
+          List<Kotivakuutus> vakuutuukset = vakuutus.annaKotivakuutus(asiakas);
+          
+          
+          String erotettu = vakuutuukset.get(0).toString();;
+          String [] tolpillaErotettu = erotettu.split("|");
+
+                 edits[0].setText(tolpillaErotettu[0]);
+                 edits[1].setText(tolpillaErotettu[1]);
+                 edits[2].setText(tolpillaErotettu[2]);
+                 edits[3].setText(tolpillaErotettu[3]);
+                 edits[4].setText(tolpillaErotettu[4]);
+                 edits[5].setText(tolpillaErotettu[5]);
+                 edits[6].setText(tolpillaErotettu[6]);
+                 
+                      }
                      
+                      
    
     
     /**

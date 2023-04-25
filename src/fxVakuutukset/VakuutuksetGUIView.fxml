@@ -177,14 +177,14 @@
                                           <Label text="Asuntotyyppi" GridPane.rowIndex="5" />
                                           <Label text="Pinta-ala" GridPane.rowIndex="1" />
                                           <TextField fx:id="editPintaala" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="19.0" prefWidth="51.0" GridPane.columnIndex="1" />
                                           <Label text="Irtamisto" GridPane.rowIndex="4" />
-                                          <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="19.0" prefWidth="51.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                           <Label text="Omavastuu" GridPane.rowIndex="6" />
                                           <TextField fx:id="editOmavastuu" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                           <Label GridPane.rowIndex="7" />
                                           <Label text="Kuukausihinta" GridPane.rowIndex="2" />
                                           <TextField fx:id="editHinta" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField fx:id="editKaytossa" GridPane.columnIndex="1" />
+                                          <TextField fx:id="editIrtaimisto" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                        </children>
                                     </GridPane>
                                  </children>

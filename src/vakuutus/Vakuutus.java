@@ -1,6 +1,7 @@
 package vakuutus;
 
 import java.io.File;
+import java.util.Collection;
 import java.util.List;
 
 import kanta.Tietue;
@@ -178,6 +179,7 @@ public class Vakuutus  {
     
 
     }
+
 
 
    

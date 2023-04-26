@@ -29,15 +29,15 @@
           <Menu mnemonicParsing="false" text="Tiedosto">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Tallenna" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Avaa" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleAvaa" text="Avaa" />
                   <MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Tulosta" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Lopeta" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleLopeta" text="Lopeta" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Muokkaa">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Muokkaa  asiakaan tietoja" />
-                  <MenuItem mnemonicParsing="false" text="Muokkaa vakuutus" />
+              <MenuItem mnemonicParsing="false" onAction="#handleMuokkaaAsiakas" text="Muokkaa  asiakaan tietoja" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleMuokkaaKotivakuutus" text="Muokkaa vakuutus" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" onAction="#handleTallenna" text="Apua">
@@ -68,7 +68,7 @@
                <children>
                   <AnchorPane>
                      <children>
-                        <Button fx:id="lisaaVakuutus" layoutX="46.0" layoutY="3.0" mnemonicParsing="false" onAction="#handleUusiKotivakuutus" prefHeight="26.0" prefWidth="118.0" text="Lisää vakuutus" />
+                        <Button fx:id="lisaaVakuutus" layoutX="46.0" layoutY="3.0" mnemonicParsing="false" onAction="#handleLisaaKotivakuutus" prefHeight="26.0" prefWidth="118.0" text="Lisää vakuutus" />
                      </children>
                   </AnchorPane>
                </children>
@@ -154,7 +154,7 @@
                         <content>
                           <AnchorPane>
                                  <children>
-                                    <GridPane fx:id="tableKotivakuutus">
+                                    <GridPane fx:id="gridKotivakuutus">
                                        <columnConstraints>
                                           <ColumnConstraints halignment="CENTER" maxWidth="108.0" minWidth="10.0" prefWidth="108.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="92.0" />

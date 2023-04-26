@@ -59,7 +59,7 @@ public class JasenDialogController implements ModalControllerInterface<Asiakas>,
     @Override
     public void setDefault(Asiakas oletus) {
         jasenKohdalla = oletus;
-        naytaJasen(edits, jasenKohdalla);   
+        naytaAsiakas(edits, jasenKohdalla);   
         
        
     }
@@ -126,15 +126,6 @@ public class JasenDialogController implements ModalControllerInterface<Asiakas>,
                  }
              }
 
-         /**
-          * Tyhjentään tekstikentät 
-          * @param edits tauluko jossa tyhjennettäviä tektsikenttiä
-          */
-         public static void tyhjenna(TextField[] edits) {
-             for (TextField edit : edits)
-                edit.setText("");
-        }
-
     private void naytaVirhe(String virhe) {
         if ( virhe == null || virhe.isEmpty() ) {
             labelVirhe.setText("");
@@ -147,66 +138,39 @@ public class JasenDialogController implements ModalControllerInterface<Asiakas>,
   
     
     /**
-     * Käsitellään jäseneen tullut muutos
-     * @param edit muuttunut kenttä
-     */
-    private void kasitteleMuutosJaseneen(TextField edit) {
-        if (jasenKohdalla == null) return;
-        String s = edit.getText();
-        String virhe = null;
-        virhe = jasenKohdalla.setNimi(s);
-        if (virhe == null) {
-            naytaVirhe(virhe);
-        } else {
-            naytaVirhe(virhe);
-        }
-    }
-    
-    
-    
-    /**
      * Näytetään jäsenen tiedot TextField komponentteihin
      * @param edits taulukko jossa tekstikenttiä
      * @param jasen näytettävä jäsen
      */
-     public static void naytaJasen(TextField[] edits, Asiakas jasen) {
-                edits[0].setText(jasen.getNimi());
-                edits[1].setText(jasen.getHetu());
-                edits[2].setText(jasen.getKatuosoite());
-                edits[3].setText(jasen.getPostinumero());
-                edits[4].setText(jasen.getKaupunki());
-                edits[5].setText(jasen.getPuhelin());
-                edits[6].setText(jasen.getKoti());
-                edits[7].setText(jasen.getInfo());
+     public static void naytaAsiakas(TextField[] edits, Asiakas jasen) {
+     
+         edits[0].setText(jasen.getNimi());
+         edits[1].setText(jasen.getHetu());
+         edits[2].setText(jasen.getKatuosoite());
+         edits[3].setText(jasen.getPostinumero());
+         edits[4].setText(jasen.getKaupunki());
+         edits[5].setText(jasen.getPuhelin());
+         edits[6].setText(jasen.getKoti());
+         edits[7].setText(jasen.getInfo());
                      }
                     
     
      /**
       * Näytetään jäsenen tiedot TextField komponentteihin
       * @param edits taulukko jossa tekstikenttiä
-      * @param asiakas näytettävä vakuutus
+      * @param tolpillaErotettu näytettävä vakuutus
       */
-      public static void naytaVakuutus(TextField[] edits, Asiakas asiakas) {
-          vakuutus = VakuutuksetGUIController.getVakuutus();
-          
-          List<Kotivakuutus> vakuutuukset = vakuutus.annaKotivakuutus(asiakas);
-          
-          
-          String erotettu = vakuutuukset.get(0).toString();;
-          String [] tolpillaErotettu = erotettu.split("|");
-
-                 edits[0].setText(tolpillaErotettu[0]);
-                 edits[1].setText(tolpillaErotettu[1]);
-                 edits[2].setText(tolpillaErotettu[2]);
-                 edits[3].setText(tolpillaErotettu[3]);
-                 edits[4].setText(tolpillaErotettu[4]);
-                 edits[5].setText(tolpillaErotettu[5]);
-                 edits[6].setText(tolpillaErotettu[6]);
+      public static void naytaVakuutus(TextField[] edits, String[] tolpillaErotettu) {
+    
+        edits[0].setText(tolpillaErotettu[0]);
+        edits[1].setText(tolpillaErotettu[1]);
+        edits[2].setText(tolpillaErotettu[2]);
+        edits[3].setText(tolpillaErotettu[3]);
+        edits[4].setText(tolpillaErotettu[4]);
+        edits[5].setText(tolpillaErotettu[5]);
+        edits[6].setText(tolpillaErotettu[6]);
                  
                       }
-                     
-                      
-   
     
     /**
      * Luodaan jäsenen kysymisdialogi ja palautetaan sama tietue muutettuna tai null
@@ -217,5 +181,42 @@ public class JasenDialogController implements ModalControllerInterface<Asiakas>,
      */
     public static Asiakas kysyJasen(Stage modalityStage, Asiakas oletus) {
         return ModalController.showModal(VakuutuksetGUIController.class.getResource("LisaaAsiakasGUIView.fxml"), "Asiakas", modalityStage, oletus);
+    }
+
+    /**
+     * Luodaan jäsenen kysymisdialogi ja palautetaan sama tietue muutettuna tai null
+     * TODO: korjattava toimimaan
+     * @param modalityStage mille ollaan modaalisia, null = sovellukselle
+     * @param oletus mitä dataan näytetään oletuksena
+     * @return null jos painetaan Cancel, muuten täytetty tietue
+     */
+    public static Asiakas muokkaaVakuutus(Stage modalityStage, Asiakas oletus) {
+        return ModalController.showModal(VakuutuksetGUIController.class.getResource("LisaaKotivakuutusGUIView.fxml"), "Kotivakuutus", modalityStage, oletus);
+    }
+    
+    /**
+     * Luodaan jäsenen kysymisdialogi ja palautetaan sama tietue muutettuna tai null
+     * TODO: korjattava toimimaan
+     * @param modalityStage mille ollaan modaalisia, null = sovellukselle
+     * @param oletus mitä dataan näytetään oletuksena
+     * @return null jos painetaan Cancel, muuten täytetty tietue
+     */
+    public static Kotivakuutus uusiVakuutus(Stage modalityStage, Kotivakuutus oletus) {
+        return ModalController.showModal(VakuutuksetGUIController.class.getResource("LisaaKotivakuutusGUIView.fxml"), "Kotivakuutus", modalityStage, oletus);
+    }
+    
+    
+    /**
+     * Näyttää tyhjän taulukon jos vakuutukset ei ole
+     * @param edits mihin näytetään
+     */
+    public static void naytaTyhja(TextField[] edits) {
+        edits[0].setText("");
+        edits[1].setText("");
+        edits[2].setText("");
+        edits[3].setText("");
+        edits[4].setText("");
+        edits[5].setText("");
+        edits[6].setText(""); 
     }
 }

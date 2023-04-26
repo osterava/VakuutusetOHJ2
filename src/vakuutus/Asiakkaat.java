@@ -5,7 +5,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -189,6 +192,5 @@ public class Asiakkaat {
         }
         lisaa(asiakas);
     }
-
 
 }

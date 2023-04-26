@@ -15,6 +15,7 @@ import fi.jyu.mit.fxgui.ModalController;
 import fi.jyu.mit.fxgui.StringGrid;
 import fi.jyu.mit.fxgui.TextAreaOutputStream;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -36,6 +37,7 @@ import vakuutus.Vakuutus;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -85,14 +87,12 @@ public class VakuutuksetGUIController implements Initializable {
         tallenna();
     }
 
-    
+    @FXML private void handleLisaaKotivakuutus() {
+        lisaaKotivakuutus();
+    }
    
     @FXML private void handleUusiAsiaks() {
        uusiAsiakas();
-    }
-    
-    @FXML private void handleUusiKotivakuutus(){
-       uusiKotivakuutus();
     }
     
     @FXML private void handleAvaa() {
@@ -105,19 +105,28 @@ public class VakuutuksetGUIController implements Initializable {
     } 
 
     @FXML private void handleMuokkaaAsiakas() {
-        muokkaa(kentta);
+        muokkaa();
     }
 
     @FXML private void handleMuokkaaKotivakuutus() {
         muokkaaKotivakuutusta();
     }
+    @FXML private void handleTulosta() {
+        TulostusController tulostusCtrl = TulostusController.tulosta(null); 
+        tulostaValitut(tulostusCtrl.getTextArea()); 
+    }
+    
+
+
 
 
 @Override
 public void initialize(URL arg0, ResourceBundle arg1) {
     
     alusta();
-    
+    for (TextField field : edits) {
+        field.setEditable(false);
+    }
 }
 
 
@@ -166,8 +175,6 @@ protected void alusta() {
          }
 
 
-
-
 /**
  * Näyttää listasta valitun asiakkaan tiedot, tilapäisesti yhteen isoon edit-kenttään
  */
@@ -176,42 +183,42 @@ protected void naytaAsiakas() {
 
     if (asiakasKohdalla == null) return;
 
-    JasenDialogController.naytaJasen(edits, asiakasKohdalla); 
-    JasenDialogController.naytaVakuutus(edits2, asiakasKohdalla); 
+    JasenDialogController.naytaAsiakas(edits, asiakasKohdalla); 
     try (PrintStream os = TextAreaOutputStream.getTextPrintStream(areaJasen)) {
         tulosta(os,asiakasKohdalla);
+        naytaVakuutukset(asiakasKohdalla);
     }
-    naytaVakuutukset(asiakasKohdalla);
+    catch (IndexOutOfBoundsException ex) {
+        System.err.println("Asiakkaalla ei ole vakuutuksia");
+        naytaTyhja();
+       
+    }
     
     
 }
 
 
-
+/**
+ * Näyttää näyttöön asiakkaan vakuutuksen
+ * @param jasen
+ */
 private void naytaVakuutukset(Asiakas jasen) {
-    tablekotivakuutus.clear();
-    if ( jasen == null ) return;
     
     List<Kotivakuutus> vakuutuukset = vakuutus.annaKotivakuutus(jasen);
-    if ( vakuutuukset.size() == 0 ) return;
-    for (Kotivakuutus har: vakuutuukset)
-        naytaVakuutus(har); 
+    
+    String erotettu = vakuutuukset.get(0).toString();;
+    String [] tolpillaErotettu = erotettu.split("\\|");
+    
+    JasenDialogController.naytaVakuutus(edits2, tolpillaErotettu);
 }
 
 
-
-private void naytaVakuutus(Vakuutus har) {
-   //
+/**
+ * Näyttää tyhjän lohkon, jos asiakkaalla ei ole vakuutuksia
+ */
+private void naytaTyhja() {
+   JasenDialogController.naytaTyhja(edits2);
 }
-
-
-
-
-
-
-
-
-
 
 
 /**
@@ -256,28 +263,6 @@ protected void hae(int jnro) {
     chooserAsiakkaat.setSelectedIndex(index); 
 
 }
-
-/** 
- * Tekee uuden tyhjän kotivakuutuksen editointia varten 
- */ 
-public void uusiKotivakuutus() { 
-    
-   /* Asiakas asiakasKohdalla = chooserAsiakkaat.getSelectedObject(); 
-    if ( asiakasKohdalla == null ) return;
-
-    Kotivakuutus uusi = new Kotivakuutus(asiakasKohdalla.getTunnusNro());
-    uusi = LisaaAsiakasGUIController.kysyTietue(null, uusi, 0);
-    if ( uusi == null ) return;
-    uusi.rekisteroi();
-    try {
-        vakuutus.lisaa(uusi);
-    } catch (SailoException e) {
-        // Näytä dialogi
-    }
-    naytaKotivakuutus(asiakasKohdalla); */
-        
-} 
-
 /**
  * Alustaa kerhon lukemalla sen valitun nimisestä tiedostosta
  * @param nimi tiedosto josta kerhon tiedot luetaan
@@ -307,26 +292,6 @@ public boolean avaa() {
 }
 
 
-private void naytaKotivakuutus(Asiakas asiakas) {
-    gridKotivakuutus.getChildren().clear();
-    if (asiakas == null) return;
-    List<Kotivakuutus> kotivakuutus = vakuutus.annaKotivakuutus(asiakas);
-    if (kotivakuutus.size() == 0) return;
-    for (Kotivakuutus koti: kotivakuutus) 
-        naytaVakuutus(koti);
-}
-
-
-private void naytaVakuutus(Kotivakuutus koti) {
-   /* int kenttia = koti.getKenttia(); 
-    String[] rivi = new String[kenttia-koti.ekaKentta()]; 
-    for (int i=0, k=koti.ekaKentta(); k < kenttia; i++, k++) 
-        rivi[i] = koti.anna(k); 
-    gridKotivakuutus.addRow(koti,rivi); */
-}
-
-
-
 /**
  * Tulostaa asiakkaan tiedot
  * @param os tietovirta johon tulostetaan
@@ -344,46 +309,41 @@ public void tulosta(PrintStream os, final Asiakas asiakas) {
 
 
 private void muokkaaKotivakuutusta() {
-   /* Asiakas asiakasKohdalla = chooserAsiakkaat.getSelectedObject(); 
-    int r = gridKotivakuutus;
-    if ( r < 0 ) return; 
-    Kotivakuutus har = gridKotivakuutus.getObject();
-    if ( har == null ) return;
-    int k = gridKotivakuutus.getColumnNr()+har.ekaKentta();
-    try {
-        har = LisaaAsiakasGUIController.kysyTietue(null, har.clone(), k);
-        if ( har == null ) return;
-        vakuutus.korvaaTaiLisaa(har); 
-        naytaKotivakuutus(asiakasKohdalla); 
-        tableKotivakuutus.selectRow(r); 
-    } catch (CloneNotSupportedException  e) { /* kloonaus 
-    } catch (SailoException e) {
-        Dialogs.showMessageDialog("Ongelmia lisäämisessä: " + e.getMessage());
+        Asiakas asi = chooserAsiakkaat.getSelectedObject(); 
+        if (JasenDialogController.muokkaaVakuutus(null, asi) == null) return;
+        hae(asi.getTunnusNro());
+
+}
+
+private void lisaaKotivakuutus() {
+    Kotivakuutus uusi = new Kotivakuutus();
+    uusi = JasenDialogController.uusiVakuutus(null, uusi); 
+    uusi.rekisteroi();
+    vakuutus.lisaa(uusi);
+    hae(uusi.getTunnusNro());
+}
+
+
+private void muokkaa() {
+        Asiakas asi = chooserAsiakkaat.getSelectedObject(); 
+        if (JasenDialogController.kysyJasen(null, asi) == null) return;
+        hae(asi.getTunnusNro());
     }
-    */
-}
 
+/**
+ * Tulostaa listassa olevat jäsenet tekstialueeseen
+ * @param text alue johon tulostetaan
+ */
+public void tulostaValitut(TextArea text) {
+    try (PrintStream os = TextAreaOutputStream.getTextPrintStream(text)) {
+        os.println("Tulostetaan kaikki jäsenet");
+  //      Collection<Asiakas> Asiakkaat = vakuutus.etsi("", -1); 
+    //    for (Asiakas asiakas:Asiakkaat) { 
+      //      tulosta(os, asiakas);
+        //    os.println("\n\n");
+        }
+   // } catch (SailoException ex) { 
+     //   Dialogs.showMessageDialog("Jäsenen hakemisessa ongelmia! " + ex.getMessage()); 
+    }
 
-private void muokkaa(int k) {
-                Asiakas asiakasKohdalla = chooserAsiakkaat.getSelectedObject();
-                if ( asiakasKohdalla == null ) return; 
-                try { 
-                    Asiakas jasen; 
-                    jasen = JasenDialogController.kysyJasen(null, asiakasKohdalla.clone()); 
-                    if ( jasen == null ) return; 
-                    vakuutus.korvaaTaiLisaa(jasen); 
-                    hae(jasen.getTunnusNro()); 
-                } catch (CloneNotSupportedException e) { 
-                    // 
-               
-            }  
-
-
-
-
-
-
-
-
-}
 }

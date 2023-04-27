@@ -306,6 +306,26 @@ public class Kotivakuutus {
         return omaVastuu;
     }
 
+    public String setKaytossa(String s) {
+        kaytossa = s;
+        return null;
+    }
+
+    public String setPala(String s) {
+        pAla = s;
+        return null;
+    }
+
+    public String setHinta(String s) {
+       hinta = s;
+        return null;
+    }
+
+    public String setPvmVoimassa(String s) {
+        pvmVoimassa = s;
+        return null;
+    }
+
 
 
 

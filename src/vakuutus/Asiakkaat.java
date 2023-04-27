@@ -9,7 +9,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
+
+import fi.jyu.mit.ohj2.WildChars;
 
 /**
  * @author olliterävä, laura
@@ -17,7 +20,7 @@ import java.util.Scanner;
  * Vakuutusten asiakkaat, joka osaa lisätä uuden jäsenen
  *
  */
-public class Asiakkaat {
+public class Asiakkaat implements Iterable<Asiakas> {
     private static final int MAX_JASENIA   = 15;
     private int              lkm           = 0;
     private String           tiedostonNimi = "";
@@ -192,5 +195,73 @@ public class Asiakkaat {
         }
         lisaa(asiakas);
     }
+
+     public class AsiakkaatIterator implements Iterator<Asiakas> {
+         private int kohdalla = 0;
+
+
+         /**
+          * Onko olemassa vielä seuraavaa jäsentä
+          * @see java.util.Iterator#hasNext()
+          * @return true jos on vielä jäseniä
+          */
+         @Override
+         public boolean hasNext() {
+             return kohdalla < getLkm();
+         }
+
+
+         /**
+          * Annetaan seuraava jäsen
+          * @return seuraava jäsen
+          * @throws NoSuchElementException jos seuraava alkiota ei enää ole
+          * @see java.util.Iterator#next()
+          */
+         @Override
+         public Asiakas next() throws NoSuchElementException {
+             if ( !hasNext() ) throw new NoSuchElementException("Ei oo");
+             return anna(kohdalla++);
+         }
+
+
+         /**
+          * Tuhoamista ei ole toteutettu
+          * @throws UnsupportedOperationException aina
+          * @see java.util.Iterator#remove()
+          */
+         @Override
+         public void remove() throws UnsupportedOperationException {
+             throw new UnsupportedOperationException("Me ei poisteta");
+         }
+     }
+
+
+     /**
+      * Palautetaan iteraattori jäsenistään.
+      * @return jäsen iteraattori
+      */
+     @Override
+     public Iterator<Asiakas> iterator() {
+         return new AsiakkaatIterator();
+     }
+
+     /**
+      * etsimille tarkoitettu metodi
+      * @param hakuehto hakuehto
+      * @param k mionesto
+      * @return löytyneet listan
+      */
+     public Collection<Asiakas> etsi(String hakuehto, int k) { 
+                 String ehto = "*"; 
+                  if ( hakuehto != null && hakuehto.length() > 0 ) ehto = hakuehto; 
+                  int hk = k; 
+                  if ( hk < 0 ) hk = 1;
+                  Collection<Asiakas> loytyneet = new ArrayList<Asiakas>(); 
+                  for (Asiakas jasen : this) { 
+                      if (WildChars.onkoSamat(jasen.anna(hk), ehto)) loytyneet.add(jasen);   
+                  } 
+                  //  TODO: lajittelua varten vertailija  
+                  return loytyneet; 
+              }
 
 }

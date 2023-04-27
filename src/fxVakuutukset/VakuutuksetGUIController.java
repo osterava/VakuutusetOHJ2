@@ -12,6 +12,7 @@ import fi.jyu.mit.fxgui.ComboBoxChooser;
 import fi.jyu.mit.fxgui.Dialogs;
 import fi.jyu.mit.fxgui.ListChooser;
 import fi.jyu.mit.fxgui.ModalController;
+import fi.jyu.mit.fxgui.ModalControllerInterface;
 import fi.jyu.mit.fxgui.StringGrid;
 import fi.jyu.mit.fxgui.TextAreaOutputStream;
 import javafx.application.Platform;
@@ -113,11 +114,13 @@ public class VakuutuksetGUIController implements Initializable {
     }
     @FXML private void handleTulosta() {
         TulostusController tulostusCtrl = TulostusController.tulosta(null); 
-        tulostaValitut(tulostusCtrl.getTextArea()); 
+        tulostaValitut(tulostusCtrl.getTextArea());
+
     }
     
-
-
+    @FXML private void handleHakuehto() {
+                 hae(0); 
+            }
 
 
 @Override
@@ -125,6 +128,9 @@ public void initialize(URL arg0, ResourceBundle arg1) {
     
     alusta();
     for (TextField field : edits) {
+        field.setEditable(false);
+    }
+    for (TextField field : edits2) {
         field.setEditable(false);
     }
 }
@@ -157,6 +163,7 @@ Vakuutus vakuutus;
 private TextArea areaJasen = new TextArea(); //TODO poista lopussa
 private TextField[] edits;
 private TextField[] edits2;
+private Asiakas apuAsiakas = new Asiakas();
 private int kentta = 0;
 
 
@@ -166,11 +173,20 @@ protected void alusta() {
         // panelJasen.setContent(areaJasen);
         panelJasen.setFitToHeight(true);
         
+        cbKentat.clear(); 
+        for (int k=apuAsiakas.ekaKentta(); k<apuAsiakas.getKenttia(); k++) {
+            cbKentat.add(apuAsiakas.getKysymys(k));
+        }
+        cbKentat.setSelectedIndex(0);
+
+        
         chooserAsiakkaat.clear();
         chooserAsiakkaat.addSelectionListener(e -> naytaAsiakas());
         
         edits = new TextField[]{editNimi, editHetu, editKatuosoite, editPostinumero,editPostiosoite,editPuhellinnumero,editKoko,editInfo};
         edits2 = new TextField[]{editKaytossa,editPintaala,editHinta,editVoimassaolo,editIrtaimisto,editAsunto,editOmavastuu};
+        
+        
         
          }
 
@@ -230,17 +246,13 @@ public void setVakuutus(Vakuutus vakuutus) {
     
 }       
 
-public Vakuutus getVakuutus() {
-    return vakuutus;
-    
-}       
-
+ 
 /**
  * Luo uuden asiakkaan jota aletaan editoimaan 
  */
 protected void uusiAsiakas() {
     Asiakas uusi = new Asiakas();
-    uusi = JasenDialogController.kysyJasen(null, uusi); 
+    uusi = JasenDialogController.kysyAsiakas(null, uusi); 
     if (uusi == null) return;
     uusi.rekisteroi();
     vakuutus.lisaa(uusi);
@@ -249,20 +261,34 @@ protected void uusiAsiakas() {
 
 /**
  * Hakee jäsenten tiedot listaan
- * @param jnro asiakkaan numero, joka aktivoidaan haun jälkeen
+ * @param jnr asiakkaan numero, joka aktivoidaan haun jälkeen
  */
-protected void hae(int jnro) {
+protected void hae(final int jnr) {
+    int jnro = jnr;
+    int k = cbKentat.getSelectionModel().getSelectedIndex() + apuAsiakas.ekaKentta();
+    String ehto = hakuehto.getText(); // aku  => *aku*   aku*  => aku*
+    if (jnro == 0) {
+        Asiakas kohdalla = chooserAsiakkaat.getSelectedObject(); 
+        if (kohdalla != null) jnro = kohdalla.getTunnusNro();
+    }
+
+    if (ehto.indexOf('*') < 0) ehto = "*" + ehto + "*";
+    
     chooserAsiakkaat.clear();
 
-   int index = 0;
-    for (int i = 0; i < vakuutus.getAsiakkaat(); i++) {
-        Asiakas asiakas = vakuutus.annaAsiakas(i);
-        if (asiakas.getTunnusNro() == jnro) index = i;
-        chooserAsiakkaat.add(asiakas.getNimi(), asiakas);
+    int index = 0;
+    Collection<Asiakas> jasenet;
+    jasenet = vakuutus.etsi(ehto, k);
+    int i = 0;
+    for (Asiakas jasen:jasenet) {
+        if (jasen.getTunnusNro() == jnro) index = i;
+        chooserAsiakkaat.add(jasen.getNimi(), jasen);
+        i++;
     }
-    chooserAsiakkaat.setSelectedIndex(index); 
-
+    chooserAsiakkaat.setSelectedIndex(index); // tästä tulee muutosviesti joka näyttää jäsenen
 }
+
+
 /**
  * Alustaa kerhon lukemalla sen valitun nimisestä tiedostosta
  * @param nimi tiedosto josta kerhon tiedot luetaan
@@ -309,15 +335,24 @@ public void tulosta(PrintStream os, final Asiakas asiakas) {
 
 
 private void muokkaaKotivakuutusta() {
+
         Asiakas asi = chooserAsiakkaat.getSelectedObject(); 
-        if (JasenDialogController.muokkaaVakuutus(null, asi) == null) return;
+        List<Kotivakuutus> kotivakuutus = vakuutus.annaKotivakuutus(asi);
+        if(kotivakuutus.size() == 0) return;
+
+        if (JasenDialogController.muokkaaVakuutus(null, kotivakuutus.get(0)) == null) return;
+        
         hae(asi.getTunnusNro());
 
 }
 
 private void lisaaKotivakuutus() {
+    Asiakas asi = chooserAsiakkaat.getSelectedObject(); 
+    List<Kotivakuutus> kotivakuutus = vakuutus.annaKotivakuutus(asi);
+    if(kotivakuutus.size() > 0) return; // TODO: tee mahdollisuus moneen eri vakuutukseen
+    
     Kotivakuutus uusi = new Kotivakuutus();
-    uusi = JasenDialogController.uusiVakuutus(null, uusi); 
+    if (JasenDialogController.muokkaaVakuutus(null, uusi) == null) return;
     uusi.rekisteroi();
     vakuutus.lisaa(uusi);
     hae(uusi.getTunnusNro());
@@ -326,7 +361,7 @@ private void lisaaKotivakuutus() {
 
 private void muokkaa() {
         Asiakas asi = chooserAsiakkaat.getSelectedObject(); 
-        if (JasenDialogController.kysyJasen(null, asi) == null) return;
+        if (JasenDialogController.kysyAsiakas(null, asi) == null) return;
         hae(asi.getTunnusNro());
     }
 
@@ -337,13 +372,15 @@ private void muokkaa() {
 public void tulostaValitut(TextArea text) {
     try (PrintStream os = TextAreaOutputStream.getTextPrintStream(text)) {
         os.println("Tulostetaan kaikki jäsenet");
-  //      Collection<Asiakas> Asiakkaat = vakuutus.etsi("", -1); 
-    //    for (Asiakas asiakas:Asiakkaat) { 
-      //      tulosta(os, asiakas);
-        //    os.println("\n\n");
+      /*  Collection<Asiakas> jasenet = vakuutus.etsi("", -1); 
+        for (Asiakas jasen:jasenet) { 
+            tulosta(os, jasen);
+            os.println("\n\n");
         }
-   // } catch (SailoException ex) { 
-     //   Dialogs.showMessageDialog("Jäsenen hakemisessa ongelmia! " + ex.getMessage()); 
-    }
+    } catch (SailoException ex) { 
+        Dialogs.showMessageDialog("Jäsenen hakemisessa ongelmia! " + ex.getMessage()); 
+    }*/
+}
 
+}
 }

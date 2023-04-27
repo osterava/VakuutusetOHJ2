@@ -84,8 +84,8 @@
                   <VBox alignment="CENTER" BorderPane.alignment="CENTER">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Haku" />
-                        <TextField fx:id="hakuehto" maxWidth="187.0" prefHeight="26.0" prefWidth="187.0" />
-                        <ComboBoxChooser fx:id="cbKentat" maxWidth="198.0" prefHeight="26.0" prefWidth="198.0" rivit="Nimi&#10;Henkilötunnus&#10;Katuosoite&#10;Postinumero&#10;Postitoimipaikka&#10;Puhelinnumero&#10;&#10;" selectFirst="false" />
+                        <TextField fx:id="hakuehto" maxWidth="187.0" onAction="#handleHakuehto" prefHeight="26.0" prefWidth="187.0" />
+                        <ComboBoxChooser fx:id="cbKentat" maxWidth="198.0" onAction="#handleHakuehto" prefHeight="26.0" prefWidth="198.0" rivit="Nimi&#10;Henkilötunnus&#10;Katuosoite&#10;Postinumero&#10;Postitoimipaikka&#10;Puhelinnumero&#10;&#10;" selectFirst="false" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Asiakkaat" />
                      </children>
                   </VBox>

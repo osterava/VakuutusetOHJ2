@@ -43,7 +43,6 @@ public class JasenDialogController implements ModalControllerInterface<Asiakas>,
     @FXML private TextField editIrtaimisto;
     @FXML private TextField editAsunto; 
     @FXML private TextField editOmavastuu; 
-    private static Vakuutus vakuutus;
     
     
     @Override
@@ -60,7 +59,6 @@ public class JasenDialogController implements ModalControllerInterface<Asiakas>,
     public void setDefault(Asiakas oletus) {
         jasenKohdalla = oletus;
         naytaAsiakas(edits, jasenKohdalla);   
-        
        
     }
 
@@ -179,7 +177,7 @@ public class JasenDialogController implements ModalControllerInterface<Asiakas>,
      * @param oletus mitä dataan näytetään oletuksena
      * @return null jos painetaan Cancel, muuten täytetty tietue
      */
-    public static Asiakas kysyJasen(Stage modalityStage, Asiakas oletus) {
+    public static Asiakas kysyAsiakas(Stage modalityStage, Asiakas oletus) {
         return ModalController.showModal(VakuutuksetGUIController.class.getResource("LisaaAsiakasGUIView.fxml"), "Asiakas", modalityStage, oletus);
     }
 
@@ -190,22 +188,10 @@ public class JasenDialogController implements ModalControllerInterface<Asiakas>,
      * @param oletus mitä dataan näytetään oletuksena
      * @return null jos painetaan Cancel, muuten täytetty tietue
      */
-    public static Asiakas muokkaaVakuutus(Stage modalityStage, Asiakas oletus) {
+    public static Kotivakuutus muokkaaVakuutus(Stage modalityStage, Kotivakuutus oletus) {
         return ModalController.showModal(VakuutuksetGUIController.class.getResource("LisaaKotivakuutusGUIView.fxml"), "Kotivakuutus", modalityStage, oletus);
     }
-    
-    /**
-     * Luodaan jäsenen kysymisdialogi ja palautetaan sama tietue muutettuna tai null
-     * TODO: korjattava toimimaan
-     * @param modalityStage mille ollaan modaalisia, null = sovellukselle
-     * @param oletus mitä dataan näytetään oletuksena
-     * @return null jos painetaan Cancel, muuten täytetty tietue
-     */
-    public static Kotivakuutus uusiVakuutus(Stage modalityStage, Kotivakuutus oletus) {
-        return ModalController.showModal(VakuutuksetGUIController.class.getResource("LisaaKotivakuutusGUIView.fxml"), "Kotivakuutus", modalityStage, oletus);
-    }
-    
-    
+      
     /**
      * Näyttää tyhjän taulukon jos vakuutukset ei ole
      * @param edits mihin näytetään

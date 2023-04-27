@@ -180,6 +180,10 @@ public class Vakuutus  {
 
     }
 
+    public Collection<Asiakas> etsi(String hakuehto, int k) { 
+                return asiakkaat.etsi(hakuehto, k); 
+             } 
+
 
 
    

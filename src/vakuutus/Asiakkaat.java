@@ -252,7 +252,7 @@ public class Asiakkaat implements Iterable<Asiakas> {
       * @return löytyneet listan
       */
      public Collection<Asiakas> etsi(String hakuehto, int k) { 
-                 String ehto = "*"; 
+                  String ehto = "*"; 
                   if ( hakuehto != null && hakuehto.length() > 0 ) ehto = hakuehto; 
                   int hk = k; 
                   if ( hk < 0 ) hk = 1;
@@ -263,5 +263,33 @@ public class Asiakkaat implements Iterable<Asiakas> {
                   //  TODO: lajittelua varten vertailija  
                   return loytyneet; 
               }
+
+    /**
+     *  etsii asiakkaan id:n.
+     * @param id mikä asiakkaan tunnusnumero
+     * @return -1 jos ei löydy, idn jos löytyy
+     */
+     public int etsiId(int id) { 
+                  for (int i = 0; i < lkm; i++) 
+                      if (id == alkiot[i].getTunnusNro()) return i; 
+                  return -1; 
+              } 
+     
+     /**
+      * poistaa id:n
+      * @param id monesko id
+      * @return 1 jos on poistettu
+      */
+     public int poista(int id) { 
+                  int ind = etsiId(id); 
+                  if (ind < 0) return 0; 
+                  lkm--; 
+                  for (int i = ind; i < lkm; i++) 
+                      alkiot[i] = alkiot[i + 1]; 
+                  alkiot[lkm] = null; 
+                  muutettu = true; 
+                  return 1; 
+              } 
+     
 
 }

@@ -84,6 +84,10 @@ public class VakuutuksetGUIController implements Initializable {
     @FXML private StringGrid<Asiakas> tablekotivakuutus;
     private String salasana = "vakuutukset";
    
+    @FXML private void handlePoistaJasen() {
+        poistaAsiakas();
+    }
+ 
     @FXML private void handleTallenna() {
         tallenna();
     }
@@ -164,7 +168,6 @@ private TextArea areaJasen = new TextArea(); //TODO poista lopussa
 private TextField[] edits;
 private TextField[] edits2;
 private Asiakas apuAsiakas = new Asiakas();
-private int kentta = 0;
 
 
 
@@ -333,7 +336,9 @@ public void tulosta(PrintStream os, final Asiakas asiakas) {
     os.println("----------------------------------------------");
 }
 
-
+/**
+ * metodi, jolla voidaan muokata kotivakuutuksia
+ */
 private void muokkaaKotivakuutusta() {
 
         Asiakas asi = chooserAsiakkaat.getSelectedObject(); 
@@ -346,7 +351,11 @@ private void muokkaaKotivakuutusta() {
 
 }
 
+/**
+ * metodi, jolla voidaan lisata kotivakuutus
+ */
 private void lisaaKotivakuutus() {
+    
     Asiakas asi = chooserAsiakkaat.getSelectedObject(); 
     List<Kotivakuutus> kotivakuutus = vakuutus.annaKotivakuutus(asi);
     if(kotivakuutus.size() > 0) return; // TODO: tee mahdollisuus moneen eri vakuutukseen
@@ -358,7 +367,9 @@ private void lisaaKotivakuutus() {
     hae(uusi.getTunnusNro());
 }
 
-
+/**
+ * avaa dialogin asiakkaan tietojen muokkaukseen
+ */
 private void muokkaa() {
         Asiakas asi = chooserAsiakkaat.getSelectedObject(); 
         if (JasenDialogController.kysyAsiakas(null, asi) == null) return;
@@ -383,4 +394,19 @@ public void tulostaValitut(TextArea text) {
 }
 
 }
+
+/**
+ *  poistaa asiakkaan tiedot rekisteristä
+ */
+private void poistaAsiakas() {
+    
+        Asiakas asiakas = chooserAsiakkaat.getSelectedObject(); 
+         if ( asiakas == null ) return;
+         if ( !Dialogs.showQuestionDialog("Poisto", "Poistetaanko jäsen: " + asiakas.getNimi(), "Kyllä", "Ei") )
+             return;
+         vakuutus.poista(asiakas);
+         int index = chooserAsiakkaat.getSelectedIndex();
+         hae(0);
+         chooserAsiakkaat.setSelectedIndex(index);
+     }
 }

@@ -37,6 +37,14 @@ public class Vakuutus  {
     }
 
 
+    public int poista(Asiakas asiakas) {
+                 if ( asiakas == null ) return 0;
+                 int ret = asiakkaat.poista(asiakas.getTunnusNro()); 
+               //  kotivakuutukset.poistaAsiakkaanVakuutus(asiakas.getTunnusNro()); 
+                 return ret; 
+             }
+    
+    
     /**
      * Lisää vakuutukseen uuden jäsenen
      * @param asiakas lisättävä jäsen
@@ -179,7 +187,12 @@ public class Vakuutus  {
     
 
     }
-
+/**
+ * etsimieen apu metodi
+ * @param hakuehto mitä haetaan
+ * @param k monesko ehto
+ * @return tuloksen listassa
+ */
     public Collection<Asiakas> etsi(String hakuehto, int k) { 
                 return asiakkaat.etsi(hakuehto, k); 
              } 

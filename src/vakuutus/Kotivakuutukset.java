@@ -24,6 +24,7 @@ import java.util.*;
  *
  */
 public class Kotivakuutukset {
+    
     private List<Kotivakuutus> alkiot = new ArrayList<Kotivakuutus>();
     
     
@@ -141,6 +142,11 @@ public class Kotivakuutukset {
              koti.tulosta(System.out);
          }
      }
+     
+     /**
+      * tutkii onko jo olemassa vai ei
+      * @param vakuutus mikä vakuutus
+      */
      public void korvaaTaiLisaa(Kotivakuutus vakuutus){
          int id = vakuutus.getTunnusNro();
          for (int i = 0; i < alkiot.size(); i++) {
@@ -151,6 +157,35 @@ public class Kotivakuutukset {
          }
          lisaa(vakuutus);
      }
+     
+     /**
+      * poistaa asiakkaan vakuutuksen
+      * @param koti mikä vakuutus poistetaan
+      * @return true jos onnistuu
+      */
+     public boolean poista(Kotivakuutus koti) {
+        
+         boolean ret = alkiot.remove(koti);
+                  return ret;
+  
+}
 
-
+    /** 
+     * poistaa asiakkaan vakuutuksen
+     * @param tunnusnro mikä id
+     * @return n
+     */
+    public int poistaAsiakkaanVakuutus(int tunnusnro) {
+        
+        int n = 0;
+        for (Iterator<Kotivakuutus> it = alkiot.iterator(); it.hasNext();) {
+                Kotivakuutus har = it.next();
+                if ( har.getAsNro() == tunnusnro ) {
+                    it.remove();
+                    n++;
+               }
+                
+          }
+        return n;
+     }
 }

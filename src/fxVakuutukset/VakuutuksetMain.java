@@ -32,9 +32,7 @@ public class VakuutuksetMain extends Application {
                     if ( !vakuutuksetCtrl.voikoSulkea() ) event.consume();
                 });
             
-
            
-            
             Vakuutus vakuutus = new Vakuutus();
             vakuutuksetCtrl.setVakuutus(vakuutus);
             

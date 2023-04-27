@@ -36,8 +36,9 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Muokkaa">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleMuokkaaAsiakas" text="Muokkaa  asiakaan tietoja" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleMuokkaaKotivakuutus" text="Muokkaa vakuutus" />
+              <MenuItem mnemonicParsing="false" onAction="#handleMuokkaaAsiakas" text="Muokkaa asiakasta" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleMuokkaaKotivakuutus" text="Muokkaa vakuutuksia" />
+                  <MenuItem mnemonicParsing="false" onAction="#handlePoistaJasen" text="Poista asiakas" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" onAction="#handleTallenna" text="Apua">

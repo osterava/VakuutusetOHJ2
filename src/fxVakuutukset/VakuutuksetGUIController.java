@@ -345,7 +345,7 @@ private void muokkaaKotivakuutusta() {
         List<Kotivakuutus> kotivakuutus = vakuutus.annaKotivakuutus(asi);
         if(kotivakuutus.size() == 0) return;
 
-        if (JasenDialogController.muokkaaVakuutus(null, kotivakuutus.get(0)) == null) return;
+        if (VakuutusController.muokkaaVakuutus(null, kotivakuutus.get(0)) == null) return;
         
         hae(asi.getTunnusNro());
 
@@ -361,7 +361,7 @@ private void lisaaKotivakuutus() {
     if(kotivakuutus.size() > 0) return; // TODO: tee mahdollisuus moneen eri vakuutukseen
     
     Kotivakuutus uusi = new Kotivakuutus();
-    if (JasenDialogController.muokkaaVakuutus(null, uusi) == null) return;
+    if (VakuutusController.muokkaaVakuutus(null, uusi) == null) return;
     uusi.rekisteroi();
     vakuutus.lisaa(uusi);
     hae(uusi.getTunnusNro());
